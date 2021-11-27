@@ -6,7 +6,7 @@ Per fare andare la pagina index.html:
 - Aprire il file index.html nella cartella ui
 
     > Nota: Nella pagina dovrebbe comparire una tabella con alcuni utenti premium ed un bottone aggiungi utente premium che non ho ancora implementato.
-      Qesta pagina mi serviva solo per verificare le api in modo carino.
+      Questa pagina mi serviva solo per verificare le api in modo carino.
 
 Per testare le api da postMan eseguire da terminale npm start, successivamente in postMan:
 - Per la get: http://localhost:50102/api/utentiPremium
