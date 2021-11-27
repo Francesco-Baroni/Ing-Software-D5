@@ -1,0 +1,28 @@
+{
+    "premium_users": [
+        {
+            "Nome": "Mario",
+            "Cognome": "Rossi",
+            "Email": "mario.rossi@mail.com",
+            "Password": "mr10"
+        },
+        {
+            "Nome": "Luca",
+            "Cognome": "Bianchi",
+            "Email": "luca.bi@mail.com",
+            "Password": "luca7bi"
+        },
+        {
+            "Nome": "Roberto",
+            "Cognome": "Verdi",
+            "Email": "robverdi@mail.com",
+            "Password": "verberto!"
+        },
+        {
+            "Nome": "Klaus",
+            "Cognome": "Mayer",
+            "Email": "klamayer@mail.com",
+            "Password": "klama%"
+        }
+    ]
+}
