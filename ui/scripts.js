@@ -8,7 +8,9 @@ logo.src = 'logo.png';
 
 const btnAdd = document.createElement('button');
 btnAdd.setAttribute('class', 'button btnAdd');
+btnAdd.onclick = function() {aggiungipremium()};
 btnAdd.textContent = "Aggiungi utente premium";
+
 
 const table = document.createElement('table');
 table.setAttribute('id', 'users');
@@ -41,7 +43,6 @@ request.onload = function () {
 
     // Begin accessing JSON data here
     var data = JSON.parse(this.response);
-    console.log("eccolo: " + data.premium_users);
     if (request.status >= 200 && request.status < 400) {
         data.premium_users.forEach(user => {
             const riga = document.createElement('tr');
@@ -69,3 +70,7 @@ request.onload = function () {
 }
 
 request.send();
+
+function aggiungipremium(){
+    window.location.href = 'formNuovoUtente.html';
+}

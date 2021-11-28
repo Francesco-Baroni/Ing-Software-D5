@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Account registration form</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet'
+        type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+        body,
+        div,
+        form,
+        input,
+        select,
+        p {
+            font-family: Roboto, Arial, sans-serif;
+        }
+
+        h1 {
+            margin: 0;
+            font-weight: 400;
+        }
+
+        h3 {
+            margin: 12px 0;
+            color: #8ebf42;
+        }
+
+        .main-block {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+        }
+
+        form {
+            width: 100%;
+            padding: 20px;
+        }
+
+        fieldset {
+            border: none;
+            border-top: 1px solid #8ebf42;
+        }
+
+        .account-details,
+        .personal-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .account-details>div,
+        .personal-details>div>div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .account-details>div,
+        .personal-details>div,
+        input,
+        label {
+            width: 100%;
+        }
+
+        label {
+            padding: 0 5px;
+            text-align: right;
+            vertical-align: middle;
+        }
+
+        input {
+            padding: 5px;
+            vertical-align: middle;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px 0;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: none;
+            background: #8ebf42;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        button:hover {
+            background: #82b534;
+        }
+
+        @media (min-width: 568px) {
+
+            .account-details>div,
+            .personal-details>div {
+                width: 50%;
+            }
+
+            label {
+                width: 40%;
+            }
+
+            input {
+                width: 60%;
+            }
+
+            select,
+            .children,
+            .gender,
+            .bdate-block {
+                width: calc(60% + 16px);
+            }
+        }
+    </style>
+    <script src="scriptForm.js"></script>
+</head>
+
+<body>
+    <div class="main-block">
+        <form id="formPremium">
+            <h1>Premium account</h1>
+            <fieldset>
+                <legend>
+                    <h3>Dettagli account</h3>
+                </legend>
+                <div class="account-details">
+                    <div><label>Nome*</label><input id="Nome" type="text" name="Nome" required></div>
+                    <div><label>Cognome*</label><input id="Cognome" type="text" name="Cognome" required></div>
+                    <div><label>Email*</label><input id="Email" type="text" name="Email" required></div>
+                    <div><label>Password*</label><input id="Password" type="password" name="Password" required></div>
+                </div>
+            </fieldset>
+
+            <button type="submit">Conferma</button>
+        </form>
+    </div>
+</body>
+
+</html>
