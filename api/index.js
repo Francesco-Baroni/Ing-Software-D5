@@ -1,6 +1,6 @@
 var Express = require("express");
 var bodyParser = require("body-parser");
-const { request, response } = require("express");
+const { request, response, application } = require("express");
 
 var app = Express();
 var fs = require('fs');
@@ -51,4 +51,28 @@ app.post('/api/newPremium', (request, response) => {
     });
 
     response.json("Utente Aggiunto Correttamente: (" + myObject.premium_users.length + ")");
+});
+
+app.delete('/api/DeletePremium/:email', (request, response) => {
+
+    // lettura file json e estrazione dati
+    var data = fs.readFileSync('dbLocale.json');
+    var myObject = JSON.parse(data);
+
+    // Ricerca dell'utente con quella determinata email
+    for(let [i, utente] of myObject.premium_users.entries()){
+
+        if(utente.Email == request.params.email){
+            myObject.premium_users.splice(i, 1);
+        }
+    }
+
+    //aggiornamento file json
+    var newData = JSON.stringify(myObject);
+    fs.writeFile('dbLocale.json', newData, err => {
+        // error checking
+        if (err) throw err;
+    });
+
+    response.json("Utente cancellato Correttamente: (" + myObject.premium_users.length + ")");
 });
