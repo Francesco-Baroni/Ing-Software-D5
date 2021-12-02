@@ -6,10 +6,10 @@ titolo.textContent = "TourPath";
 const logo = document.createElement('img');
 logo.src = 'logo.png';
 
-const btnAdd = document.createElement('button');
-btnAdd.setAttribute('class', 'button btnAdd');
-btnAdd.onclick = function () { cercaComune() };
-btnAdd.textContent = "Cerca";
+const btnCerca = document.createElement('button');
+btnCerca.setAttribute('class', 'button btnCerca');
+btnCerca.onclick = function () { cercaComune() };
+btnCerca.textContent = "Cerca";
 
 const inputComune = document.createElement('input');
 inputComune.setAttribute('type', 'text');
@@ -30,7 +30,7 @@ th3.textContent = "Immagine";
 app.appendChild(logo);
 app.appendChild(titolo);
 app.appendChild(inputComune);
-app.appendChild(btnAdd);
+app.appendChild(btnCerca);
 app.appendChild(table);
 table.appendChild(tableHead);
 tableHead.appendChild(th1);
@@ -38,34 +38,37 @@ tableHead.appendChild(th2);
 tableHead.appendChild(th3);
 
 function cercaComune() {
-    var request = new XMLHttpRequest();
     var comune = document.getElementById('nomeComune').value;
-    var url = 'https://opendata.beniculturali.it/searchPlace?modulo=luoghi&comune=' + comune;
+    var url = 'http://localhost:50102/api/PuntiInteresse/' + comune;
+    var request = new XMLHttpRequest();
     request.open('GET', url, true);
-    request.setRequestHeader('Access-Control-Allow-Headers', '*');
-    request.setRequestHeader('Access-Control-Allow-Origin', 'anonymous');
-    request.setRequestHeader("Authorization", "Basic GET");
     request.onload = function () {
-
         // Begin accessing XML data here
-        let parser = new DOMParser();
-        let xmlDoc = parser.parseFromString(this.response, "text/xml");
+        let data = JSON.parse(this.response);
         if (request.status >= 200 && request.status < 400) {
-            for (let i = 0; i < xmlDoc.getElementsByTagName('mibac').length; i++) {
+            data["mibac-list"]["mibac"].forEach(luogo => {
                 const riga = document.createElement('tr');
 
                 const td1 = document.createElement('td');
-                td1.textContent = x[i].getElementsByTagName('luogodellacultura').getElementsByTagName('denominazione')[0].nodeValue;
+                td1.textContent = luogo["luogodellacultura"][0].denominazione[0].nomestandard;
                 const td2 = document.createElement('td');
-                td2.textContent = x[i].getElementsByTagName('luogodellacultura').getElementsByTagName('descrizione')[0].nodeValue;
+                td2.textContent = luogo["luogodellacultura"][0].descrizione[0].testostandard;
                 const td3 = document.createElement('td');
-                td3.textContent = x[i].getElementsByTagName('luogodellacultura').getElementsByTagName('allegati')[0].childNodes[0].nodeValue;
-
+                const img = document.createElement('img');
+                if(luogo["luogodellacultura"][0].allegati[0] != ""){
+                    img.setAttribute('src', luogo["luogodellacultura"][0].allegati[0].allegato[0].url);
+                    
+                }
+                else{
+                    img.setAttribute('src', 'noImg.png');
+                }
+                
+                td3.appendChild(img);
                 table.appendChild(riga);
                 riga.appendChild(td1);
                 riga.appendChild(td2);
                 riga.appendChild(td3);
-            }
+            });
         } else {
             const errorMessage = document.createElement('marquee');
             errorMessage.textContent = `THE API IS NOT WORKING!`;
@@ -74,4 +77,5 @@ function cercaComune() {
     }
 
     request.send();
+    //window.location.href = url;
 }

@@ -11,6 +11,11 @@ btnAdd.setAttribute('class', 'button btnAdd');
 btnAdd.onclick = function() {aggiungipremium()};
 btnAdd.textContent = "Aggiungi utente premium";
 
+const btnLuoghi = document.createElement('button');
+btnLuoghi.setAttribute('class', 'button btnLuoghi');
+btnLuoghi.onclick = function() {luoghi()};
+btnLuoghi.textContent = "Luoghi";
+
 
 const table = document.createElement('table');
 table.setAttribute('id', 'users');
@@ -30,6 +35,7 @@ th4.textContent = "Password";
 app.appendChild(logo);
 app.appendChild(titolo);
 app.appendChild(btnAdd);
+app.appendChild(btnLuoghi);
 app.appendChild(table);
 table.appendChild(tableHead);
 tableHead.appendChild(th1);
@@ -73,4 +79,8 @@ request.send();
 
 function aggiungipremium(){
     window.location.href = 'formNuovoUtente.html';
+}
+
+function luoghi(){
+    window.location.href = 'luoghi.html';
 }

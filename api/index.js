@@ -4,12 +4,14 @@ const { request, response, application } = require("express");
 
 var app = Express();
 var fs = require('fs');
+const https = require('https');
+const xml2js = require('xml2js');
 
 var cors = require('cors');
 app.use(cors());
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var port = 50102;
 
@@ -60,9 +62,9 @@ app.delete('/api/DeletePremium/:email', (request, response) => {
     var myObject = JSON.parse(data);
 
     // Ricerca dell'utente con quella determinata email
-    for(let [i, utente] of myObject.premium_users.entries()){
+    for (let [i, utente] of myObject.premium_users.entries()) {
 
-        if(utente.Email == request.params.email){
+        if (utente.Email == request.params.email) {
             myObject.premium_users.splice(i, 1);
         }
     }
@@ -75,4 +77,42 @@ app.delete('/api/DeletePremium/:email', (request, response) => {
     });
 
     response.json("Utente cancellato Correttamente: (" + myObject.premium_users.length + ")");
+});
+
+app.get('/api/PuntiInteresse/:comune', (request, response) => {
+    var url = 'https://opendata.beniculturali.it/searchPlace?modulo=luoghi&comune=' + request.params.comune;
+
+    https.get(url, (resp) => {
+        let data = '';
+
+        // A chunk of data has been received.
+        resp.on('data', (chunk) => {
+            data += chunk;
+        });
+
+        // The whole response has been received. Print out the result.
+        resp.on('end', () => {
+            //console.log(data);
+            xml2js.parseString(data, (err, result) => {
+                if (err) {
+                    throw err;
+                }
+
+                // `result` is a JavaScript object
+                // convert it to a JSON string
+                const json = JSON.stringify(result, null, 4);
+
+                fs.writeFile('luoghi.json', json, err => {
+                    // error checking
+                    if (err) throw err;
+                });
+
+                // log JSON string
+                response.json(result);
+            });
+        });
+
+    }).on("error", (err) => {
+        console.log("Error: " + err.message);
+    });
 });
