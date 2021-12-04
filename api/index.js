@@ -116,3 +116,4 @@ app.get('/api/PuntiInteresse/:comune', (request, response) => {
         console.log("Error: " + err.message);
     });
 });
+

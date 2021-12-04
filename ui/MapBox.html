@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Getting started with the Mapbox Directions API</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #fromTo {
+            position: absolute;
+            margin: 30px;
+            width: 25%;
+            top: 0;
+            bottom: 20%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0);
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='map'></div>
+    <div id="fromTo"></div>
+    <script src='scriptMapBox.js'></script>
+</body>
+
+</html>
