@@ -24,6 +24,32 @@ async function getRoute(start, end) {
     // make a directions request using cycling profile
     // an arbitrary start will always be the same
     // only the end or destination will change
+    let id = 0;
+    let pos = [0, 0];
+    let poi = [
+        {
+            "0": "11.10",
+            "1": "46.07",
+        },
+        {
+            "0": "11.11",
+            "1": "46.06",
+        },
+        {
+            "0": "11.12",
+            "1": "46.05",
+        }
+    ];
+    let path = `${start[0]},${start[1]};`;
+    for (let p of poi) {
+        path += `${p[0]},${p[1]};`
+        pos[0] = p[0];
+        pos[1] = p[1];
+        //setPoint(pos, id, '#2d8f53');
+        id++;
+    }
+    path += `${end[0]},${end[1]}`;
+
     const query = await fetch(
         `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
         { method: 'GET' }
@@ -64,6 +90,9 @@ async function getRoute(start, end) {
         });
     }
     // add turn instructions here at the end
+    const lblDurata = document.getElementById('lblDurata');
+    const durata = Math.floor(data.duration / 60);
+    lblDurata.textContent = 'Durata: ' + durata + ' min';
 }
 
 map.on('load', () => {
@@ -123,6 +152,7 @@ const fromTo = document.getElementById('fromTo');
 const inFrom = document.createElement('input');
 const inTo = document.createElement('input');
 const btnGenera = document.createElement('button');
+const lblDurata = document.createElement('label');
 
 inFrom.setAttribute('type', 'text');
 inFrom.setAttribute('placeholder', 'From Es: 11.13, 46.07');
@@ -135,12 +165,15 @@ inTo.setAttribute('id', 'to');
 btnGenera.textContent = 'Genera Percorso';
 btnGenera.onclick = function () { generaPercorso() };
 
+lblDurata.setAttribute('id', 'lblDurata');
+
 fromTo.appendChild(inFrom);
 fromTo.appendChild(inTo);
 fromTo.appendChild(btnGenera);
+fromTo.appendChild(lblDurata);
 
-function setPoints(from, to){
-    const end = {
+function setPoint(pos, id, color) {
+    const point = {
         type: 'FeatureCollection',
         features: [
             {
@@ -148,16 +181,16 @@ function setPoints(from, to){
                 properties: {},
                 geometry: {
                     type: 'Point',
-                    coordinates: to
+                    coordinates: pos
                 }
             }
         ]
     };
-    if (map.getLayer('end')) {
-        map.getSource('end').setData(end);
+    if (map.getLayer(id)) {
+        map.getSource(id).setData(id);
     } else {
         map.addLayer({
-            id: 'end',
+            id: id,
             type: 'circle',
             source: {
                 type: 'geojson',
@@ -177,49 +210,7 @@ function setPoints(from, to){
             },
             paint: {
                 'circle-radius': 10,
-                'circle-color': '#f30'
-            }
-        });
-    }
-
-    const start = {
-        type: 'FeatureCollection',
-        features: [
-            {
-                type: 'Feature',
-                properties: {},
-                geometry: {
-                    type: 'Point',
-                    coordinates: from
-                }
-            }
-        ]
-    };
-    if (map.getLayer('start')) {
-        map.getSource('start').setData(start);
-    } else {
-        map.addLayer({
-            id: 'start',
-            type: 'circle',
-            source: {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: [
-                        {
-                            type: 'Feature',
-                            properties: {},
-                            geometry: {
-                                type: 'Point',
-                                coordinates: from
-                            }
-                        }
-                    ]
-                }
-            },
-            paint: {
-                'circle-radius': 10,
-                'circle-color': '#1f63bd'
+                'circle-color': color
             }
         });
     }
@@ -228,9 +219,8 @@ function setPoints(from, to){
 function generaPercorso() {
     const from = (document.getElementById('from').value).split(',');
     const to = (document.getElementById('to').value).split(',');
-    console.log(from);
-    console.log(to);
 
     getRoute(from, to);
-    setPoints(from, to);
+    setPoint(from, 'start', '#1e8aa5');
+    setPoint(to, 'end', '#f30');
 }
