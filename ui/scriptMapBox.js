@@ -27,6 +27,8 @@ async function getRoute(start, end) {
     // only the end or destination will change
     let id = 0;
     let pos = [0, 0];
+    //setPoint(start, 'start', '#2d8f53');
+
     let poi = [
         {
             "0": "11.10",
@@ -77,7 +79,6 @@ async function getRoute(start, end) {
         { method: 'GET' }
     );
     const json = await query.json();
-    console.log(json);
     const data = json.trips[0];
     const route = data.geometry.coordinates;
     const geojson = {

@@ -5,7 +5,7 @@
             "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
             "xsi:schemaLocation": "http://storico.beniculturali.it/MibacSchema http://storico.beniculturali.it/mibac/xsd/MibacSchema.xsd",
             "total": "6921",
-            "totaleRitornati": "9"
+            "totaleRitornati": "8"
         },
         "query": [
             {
@@ -13,7 +13,7 @@
                     "luoghi"
                 ],
                 "comune": [
-                    "trento"
+                    "Rovereto"
                 ]
             }
         ],
@@ -32,293 +32,20 @@
                                             "ruolo": "Compilatore"
                                         },
                                         "denominazione": [
-                                            "Z-comunità Dei Redattori"
-                                        ]
-                                    }
-                                ],
-                                "dataValidazione": [
-                                    "2019-09-03 09:52:00"
-                                ],
-                                "dataUltimaModifica": [
-                                    "2021-04-21 13:24:46"
-                                ]
-                            }
-                        ],
-                        "datacreazionexml": [
-                            "2020-04-14 17:59:35"
-                        ],
-                        "sorgente": [
-                            "MiBAC"
-                        ]
-                    }
-                ],
-                "luogodellacultura": [
-                    {
-                        "identificatore": [
-                            {
-                                "codice": [
-                                    "6839"
-                                ]
-                            }
-                        ],
-                        "tipologie": [
-                            {
-                                "$": {
-                                    "tipologiaPrevalente": "Archivio di Stato"
-                                }
-                            }
-                        ],
-                        "categorie": [
-                            {
-                                "$": {
-                                    "categoriaPrevalente": "Contenuti Multimediali"
-                                }
-                            }
-                        ],
-                        "proprieta": [
-                            "MiBACT"
-                        ],
-                        "denominazione": [
-                            {
-                                "nomestandard": [
-                                    "Archivio di Stato di Trento"
-                                ]
-                            }
-                        ],
-                        "descrizione": [
-                            {
-                                "testostandard": [
-                                    "L’Archivio storico del Comune di Trento è uno dei principali archivi della città e conserva documenti di fondamentale importanza per la conoscenza della storia, della politica, dell’amministrazione, della cultura e dell’economia del territorio afferente alla città.Il nucleo centrale della documentazione conservata nell’Archivio storico è costituito dai fondi prodotti dall’Amministrazione nel corso della propria attività. "
-                                ]
-                            }
-                        ],
-                        "info": [
-                            {
-                                "orario": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "responsabile": [
-                                    "Roberta FOSSALI"
-                                ],
-                                "sitoweb": [
-                                    "http://www.archiviodistatotrento.beniculturali.it/"
-                                ],
-                                "email": [
-                                    "as-tn@beniculturali.it"
-                                ],
-                                "email-certificata": [
-                                    "mbac-as-tn@mailcert.beniculturali.it"
-                                ],
-                                "telefono": [
-                                    {
-                                        "testostandard": [
-                                            "0461829008"
-                                        ]
-                                    }
-                                ],
-                                "fax": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "chiusuraSettimanale": [
-                                    {
-                                        "testostandard": [
-                                            "Lunedì|Martedi|Mercoledi|Giovedi|Venerdi|Sabato|Domenica"
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "enteCompetente": [
-                            {
-                                "$": {
-                                    "ruolo": "Responsabile"
-                                },
-                                "identificatore": [
-                                    {
-                                        "codice": [
-                                            {
-                                                "_": "114",
-                                                "$": {
-                                                    "codifica": "numero",
-                                                    "sorgente": "MiBAC"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "denominazione": [
-                                    "Archivio di Stato di Trento"
-                                ]
-                            }
-                        ],
-                        "biglietteria": [
-                            {
-                                "telefono-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            "0461829008"
-                                        ]
-                                    }
-                                ],
-                                "fax-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "email-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            "as-tn@beniculturali.it"
-                                        ]
-                                    }
-                                ],
-                                "costo": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "riduzioni": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "orario-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "prenotazioni": [
-                            {
-                                "$": {
-                                    "tipo": "Nessuna"
-                                },
-                                "sitoweb": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "email": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "telefono": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "fax": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "indirizzi": [
-                            {
-                                "indirizzo": [
-                                    {
-                                        "$": {
-                                            "denominazione": "Sede Principale"
-                                        },
-                                        "via-piazza": [
-                                            "Via Maestri del Lavoro"
-                                        ],
-                                        "comune": [
-                                            "Trento"
-                                        ],
-                                        "regione": [
-                                            "Trentino-Alto Adige"
-                                        ],
-                                        "provincia": [
-                                            "Trento"
-                                        ],
-                                        "cap": [
-                                            "38121"
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "allegati": [
-                            {
-                                "allegato": [
-                                    {
-                                        "$": {
-                                            "mime-type": "image/jpeg",
-                                            "index": "1",
-                                            "mibacid": "19826"
-                                        },
-                                        "url": [
-                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Trento, Archivio di Stato.jpg"
-                                        ],
-                                        "didascalia": [
-                                            ""
-                                        ],
-                                        "descrizione": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "metainfo": [
-                    {
-                        "workflow": [
-                            {
-                                "stato": [
-                                    "Pubblicato"
-                                ],
-                                "enteCompilatore": [
-                                    {
-                                        "$": {
-                                            "ruolo": "Compilatore"
-                                        },
-                                        "denominazione": [
                                             "Trentino-alto Adige"
                                         ]
                                     }
                                 ],
                                 "dataValidazione": [
-                                    "2014-03-28 15:20:00"
+                                    "2016-02-26 12:00:00"
                                 ],
                                 "dataUltimaModifica": [
-                                    "2021-04-21 13:08:54"
+                                    "2021-04-21 11:00:35"
                                 ]
                             }
                         ],
                         "datacreazionexml": [
-                            "2020-04-14 17:57:57"
+                            "2020-04-14 17:55:15"
                         ],
                         "sorgente": [
                             "MiBAC"
@@ -330,38 +57,38 @@
                         "identificatore": [
                             {
                                 "codice": [
-                                    "6571"
+                                    "5071"
                                 ]
                             }
                         ],
                         "tipologie": [
                             {
                                 "$": {
-                                    "tipologiaPrevalente": "Area Archeologica"
+                                    "tipologiaPrevalente": "Monumento"
                                 }
                             }
                         ],
                         "categorie": [
                             {
                                 "$": {
-                                    "categoriaPrevalente": "Contenuti Editoriali"
+                                    "categoriaPrevalente": "Istituti di Restauro"
                                 }
                             }
                         ],
                         "proprieta": [
-                            "Comune"
+                            "Non disponibile"
                         ],
                         "denominazione": [
                             {
                                 "nomestandard": [
-                                    "Area archeologica Palazzo Lodron"
+                                    "Campana dei Caduti"
                                 ]
                             }
                         ],
                         "descrizione": [
                             {
                                 "testostandard": [
-                                    "Nell'ambito del progetto \"Tridentum. La città sotterranea\" sono stati  ultimati dalla Soprintendenza per i Beni archeologici della Provincia autonoma di Trento i lavori di allestimento dell'area archeologica di Palazzo Lodron, nell'omonima piazza nel centro cittadino. Da mercoledì 11 giugno 2008 il sito, situato negli spazi interrati della sede trentina della Banca Popolare Volksbank, è aperto al pubblico grazie anche al sostegno dell'istituto di credito che ha contribuito finanziariamente alle ricerche e all'allestimento. Le indagini, avviate nel 2000 in concomitanza dei restauri di Palazzo Lodron hanno richiesto 8.000 ore di ricerca archeologica su una superficie di circa 500 mq.. Le ricerche hanno permesso l'individuazione di una porzione del quartiere sudorientale di Tridentum, con una sequenza cronologica che si articola dalla metà del I secolo a.C. fino al periodo tardo-romano, alto medievale (VI/VII sec. d. C.). I resti murari pertinenti agli edifici sono conservati per un'altezza che varia dai 30 cm a circa 2 metri, hanno uno sviluppo chiaro ed articolato. Straordinario è risultato lo stato di conservazione della prima cinta muraria cittadina (I sec. a.C.) di cui è visibile complessivamente un tratto di circa 9 metri mentre, sul fronte esterno dell'interrato del palazzo, non visitabile per ragioni di sicurezza, è riconoscibile il lato verso la campagna della seconda e più tarda cinta (III sec. d.C.), addossata alla quale si è rinvenuto un cimitero databile fra VI e VII sec., con una tomba di donna gota con un ricco corredo funebre. Accanto alla cinta urbica, che comprende una torre/porta, si trovano una significativa porzione di strada lastricata, completa di marciapiede in blocchi di pietra e terra battuta e resti di edifici privati. Fra questi spicca una caupona, bottega per la vendita di vino, con la presenza di grandi fosse circolari adatte a contenere tini o botti. Il tutto riveste notevole importanza perché costituisce un ulteriore tassello per la ricostruzione dell'impianto urbano e nel contempo ci permette di individuare ulteriori attività che si svolgevano all'interno della città. Fondata dai Romani verso la metà del I sec. a.C. e definita splendidum municipium dall'imperatore Claudio nel 46 d.C., Tridentum è stata inglobata nel corso dei secoli nella Trento medievale e moderna. "
+                                    "La città di Rovereto ospita sul Colle Miravalle la Campana dei Caduti,  realizzata col bronzo dei cannoni offerto dalle nazioni partecipanti al primo conflitto mondiale, suonò il primo rintocco il giorno 4 ottobre 1925, alla presenza del Re Vittorio Emanuele III. In tutti questi anni ha fatto sentire alta la sua voce suonando ogni sera i cento rintocchi di ammonimento alla vita e alla pace.Info dettagliOrari:tutti i giorni : Gennaio, Febbraio, Novembre, Dicembre  dalle ore 9.00 alle ore 16.30Marzo, Aprile, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre dalle ore 10.00 alle ore 18.00Dal 15 giugno al 15 settembre apertura serale dalle ore 20.00 alle ore 22.00per assistere al suono della Campana delle 21.30. NB: ultimo biglietto d'entrata mezz'ora prima della chiusura"
                                 ]
                             }
                         ],
@@ -378,10 +105,10 @@
                                     "-"
                                 ],
                                 "sitoweb": [
-                                    "http://www.trentinocultura.net"
+                                    "http://www.fondazioneoperacampana.it"
                                 ],
                                 "email": [
-                                    "uff.beniarcheologici@provincia.tn.it"
+                                    "info@fondazioneoperacampana.it"
                                 ],
                                 "email-certificata": [
                                     ""
@@ -389,7 +116,7 @@
                                 "telefono": [
                                     {
                                         "testostandard": [
-                                            "0461 230171"
+                                            "0464434412"
                                         ]
                                     }
                                 ],
@@ -437,7 +164,7 @@
                                 "telefono-biglietteria": [
                                     {
                                         "testostandard": [
-                                            "0461 230171"
+                                            "0464434412"
                                         ]
                                     }
                                 ],
@@ -451,21 +178,21 @@
                                 "email-biglietteria": [
                                     {
                                         "testostandard": [
-                                            "uff.beniarcheologici@provincia.tn.it"
+                                            "info@fondazioneoperacampana.it"
                                         ]
                                     }
                                 ],
                                 "costo": [
                                     {
                                         "testostandard": [
-                                            "Gratuito"
+                                            "3,00"
                                         ]
                                     }
                                 ],
                                 "riduzioni": [
                                     {
                                         "testostandard": [
-                                            ""
+                                            "1,00"
                                         ]
                                     }
                                 ],
@@ -521,10 +248,10 @@
                                             "denominazione": "Sede Principale"
                                         },
                                         "via-piazza": [
-                                            "Piazza Lodron"
+                                            "Via Miravalle"
                                         ],
                                         "comune": [
-                                            "Trento"
+                                            "Rovereto"
                                         ],
                                         "regione": [
                                             "Trentino-Alto Adige"
@@ -533,7 +260,7 @@
                                             "Trento"
                                         ],
                                         "cap": [
-                                            "38014"
+                                            "38068"
                                         ]
                                     }
                                 ]
@@ -546,10 +273,10 @@
                                         "$": {
                                             "mime-type": "image/jpeg",
                                             "index": "1",
-                                            "mibacid": "19823"
+                                            "mibacid": "19805"
                                         },
                                         "url": [
-                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Trento, Area archeologica Palazzo Lodron.jpg"
+                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Rovereto, Campana dei Caduti.jpg"
                                         ],
                                         "didascalia": [
                                             ""
@@ -583,283 +310,10 @@
                                     }
                                 ],
                                 "dataValidazione": [
-                                    "2015-12-21 16:34:00"
+                                    "2014-01-31 12:33:00"
                                 ],
                                 "dataUltimaModifica": [
-                                    "2021-04-21 13:12:05"
-                                ]
-                            }
-                        ],
-                        "datacreazionexml": [
-                            "2020-04-14 17:59:10"
-                        ],
-                        "sorgente": [
-                            "MiBAC"
-                        ]
-                    }
-                ],
-                "luogodellacultura": [
-                    {
-                        "identificatore": [
-                            {
-                                "codice": [
-                                    "6792"
-                                ]
-                            }
-                        ],
-                        "tipologie": [
-                            {
-                                "$": {
-                                    "tipologiaPrevalente": "Architettura Fortificata"
-                                }
-                            }
-                        ],
-                        "categorie": [
-                            {
-                                "$": {
-                                    "categoriaPrevalente": "Nuclei Carabinieri TCP"
-                                }
-                            }
-                        ],
-                        "proprieta": [
-                            "Provincia"
-                        ],
-                        "denominazione": [
-                            {
-                                "nomestandard": [
-                                    "Castel Thun"
-                                ]
-                            }
-                        ],
-                        "descrizione": [
-                            {
-                                "testostandard": [
-                                    "Imponente e austero, il castello fu la dimora di una delle più potenti famiglie feudali della regione.Situato su una collina, in posizione panoramica rispetto all’intera Valle di Non, esso è circondato da un complesso sistema di fortificazioni costituito da torri, mura, bastioni, cammino di ronda e fossato e risalente al Cinquecento. Alla stessa epoca risale la potente Porta Spagnola, oltrepassata la quale si accede al ponte levatoio e al primo cortile.Qui si eleva l’imponente Palazzo Baronale.Nei vasti spazi interni si susseguono numerose sale, che conservano i ricchi arredi originari e un’interessante quadreria di famiglia.L’ambiente più pregevole e interessante è la cinquecentesca Stanza del Vescovo, interamente rivestita di legno di cirmolo.Castel Thun è stato acquisito nel 1992 dalla Provincia autonoma di Trento.Edificio e arredi sono tuttora sottoposti a un attento e impegnativo intervento di restauro e studio."
-                                ]
-                            }
-                        ],
-                        "info": [
-                            {
-                                "orario": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "responsabile": [
-                                    "-"
-                                ],
-                                "sitoweb": [
-                                    "http://www.buonconsiglio.it/index.php/it/Castel-Thun/"
-                                ],
-                                "email": [
-                                    "booking@buonconsiglio.it"
-                                ],
-                                "email-certificata": [
-                                    ""
-                                ],
-                                "telefono": [
-                                    {
-                                        "testostandard": [
-                                            "0461 233770"
-                                        ]
-                                    }
-                                ],
-                                "fax": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "chiusuraSettimanale": [
-                                    {
-                                        "testostandard": [
-                                            "Lunedì|Martedi|Mercoledi|Giovedi|Venerdi|Sabato|Domenica"
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "enteCompetente": [
-                            {
-                                "$": {
-                                    "ruolo": "Responsabile"
-                                },
-                                "identificatore": [
-                                    {
-                                        "codice": [
-                                            {
-                                                "_": "1",
-                                                "$": {
-                                                    "codifica": "numero",
-                                                    "sorgente": "MiBAC"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "denominazione": [
-                                    "Mibac"
-                                ]
-                            }
-                        ],
-                        "biglietteria": [
-                            {
-                                "telefono-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            "0461 233770"
-                                        ]
-                                    }
-                                ],
-                                "fax-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "email-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            "booking@buonconsiglio.it"
-                                        ]
-                                    }
-                                ],
-                                "costo": [
-                                    {
-                                        "testostandard": [
-                                            "8,00"
-                                        ]
-                                    }
-                                ],
-                                "riduzioni": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "orario-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "prenotazioni": [
-                            {
-                                "$": {
-                                    "tipo": "Nessuna"
-                                },
-                                "sitoweb": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "email": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "telefono": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "fax": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "indirizzi": [
-                            {
-                                "indirizzo": [
-                                    {
-                                        "$": {
-                                            "denominazione": "Sede Principale"
-                                        },
-                                        "via-piazza": [
-                                            "Vigo di Ton Valle di Non"
-                                        ],
-                                        "comune": [
-                                            "Trento"
-                                        ],
-                                        "regione": [
-                                            "Trentino-Alto Adige"
-                                        ],
-                                        "provincia": [
-                                            "Trento"
-                                        ],
-                                        "cap": [
-                                            "38014"
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "allegati": [
-                            {
-                                "allegato": [
-                                    {
-                                        "$": {
-                                            "mime-type": "image/jpeg",
-                                            "index": "1",
-                                            "mibacid": "19824"
-                                        },
-                                        "url": [
-                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Trento, Castel Thun.jpeg"
-                                        ],
-                                        "didascalia": [
-                                            ""
-                                        ],
-                                        "descrizione": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "metainfo": [
-                    {
-                        "workflow": [
-                            {
-                                "stato": [
-                                    "Pubblicato"
-                                ],
-                                "enteCompilatore": [
-                                    {
-                                        "$": {
-                                            "ruolo": "Compilatore"
-                                        },
-                                        "denominazione": [
-                                            "Trentino-alto Adige"
-                                        ]
-                                    }
-                                ],
-                                "dataValidazione": [
-                                    "2015-12-21 16:39:00"
-                                ],
-                                "dataUltimaModifica": [
-                                    "2021-09-27 13:58:40"
+                                    "2021-04-21 10:35:52"
                                 ]
                             }
                         ],
@@ -876,7 +330,593 @@
                         "identificatore": [
                             {
                                 "codice": [
-                                    "1485"
+                                    "1475"
+                                ]
+                            }
+                        ],
+                        "tipologie": [
+                            {
+                                "$": {
+                                    "tipologiaPrevalente": "Villa o Palazzo di interesse storico o artistico"
+                                }
+                            }
+                        ],
+                        "categorie": [
+                            {
+                                "$": {
+                                    "categoriaPrevalente": "Istituti di Restauro"
+                                }
+                            }
+                        ],
+                        "proprieta": [
+                            "Ente Ecclesiastico o Religioso"
+                        ],
+                        "denominazione": [
+                            {
+                                "nomestandard": [
+                                    "Casa natale di Antonio Rosmini"
+                                ]
+                            }
+                        ],
+                        "descrizione": [
+                            {
+                                "testostandard": [
+                                    "Il beato Antonio Rosmini-Serbati, sacerdote, filosofo, scrittore e fondatore dell’Istituto della Carità nacque a Rovereto il 24 marzo 1797 e morì a Stresa il 1° luglio 1855. La casa natale, abitata dai Padri Rosminiani, è oggi diventata un Museo. Il palazzo d’impianto seicentesco fu ampliato nella seconda metà del XIX secolo per iniziativa di Francesco Paoli. All’interno si conservano mobili originali, stufe in maiolica, stucchi tardosettecenteschi, raccolte archivistiche e librarie, collezioni di stampe e disegni e un’interessante pinacoteca, con opere di carattere sacro e profano e ritratti del filosofo e degli antenati. Al pianterreno ha trovato sede la Biblioteca rosminiana, istituita nel 1985. Al primo piano si trovano il salone degli specchi, la sala del balcone, il salottino, la sala del pianoforte, la cappella affrescata nel 1781 e la biblioteca di famiglia disposta su apposita scaffalatura lignea, ricavata nelle stanze dei genitori di Antonio. Al secondo piano scopriamo la stanza natale, che custodisce cimeli ed effetti personali appartenuti al beato."
+                                ]
+                            }
+                        ],
+                        "info": [
+                            {
+                                "orario": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "responsabile": [
+                                    "-"
+                                ],
+                                "sitoweb": [
+                                    "http://www.casanatalerosmini.it"
+                                ],
+                                "email": [
+                                    "casa.natale@rosmini.it"
+                                ],
+                                "email-certificata": [
+                                    ""
+                                ],
+                                "telefono": [
+                                    {
+                                        "testostandard": [
+                                            "0464420788"
+                                        ]
+                                    }
+                                ],
+                                "fax": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "chiusuraSettimanale": [
+                                    {
+                                        "testostandard": [
+                                            "Lunedì|Martedi|Mercoledi|Giovedi|Venerdi|Sabato|Domenica"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "enteCompetente": [
+                            {
+                                "$": {
+                                    "ruolo": "Responsabile"
+                                },
+                                "identificatore": [
+                                    {
+                                        "codice": [
+                                            {
+                                                "_": "1",
+                                                "$": {
+                                                    "codifica": "numero",
+                                                    "sorgente": "MiBAC"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "denominazione": [
+                                    "Mibac"
+                                ]
+                            }
+                        ],
+                        "biglietteria": [
+                            {
+                                "telefono-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            "0464420788"
+                                        ]
+                                    }
+                                ],
+                                "fax-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "email-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            "casa.natale@rosmini.it"
+                                        ]
+                                    }
+                                ],
+                                "costo": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "riduzioni": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "orario-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "prenotazioni": [
+                            {
+                                "$": {
+                                    "tipo": "Nessuna"
+                                },
+                                "sitoweb": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "email": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "telefono": [
+                                    {
+                                        "testostandard": [
+                                            "0464 420788"
+                                        ]
+                                    }
+                                ],
+                                "fax": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "indirizzi": [
+                            {
+                                "indirizzo": [
+                                    {
+                                        "$": {
+                                            "denominazione": "Sede Principale"
+                                        },
+                                        "via-piazza": [
+                                            "Via A. Stoppani"
+                                        ],
+                                        "comune": [
+                                            "Rovereto"
+                                        ],
+                                        "regione": [
+                                            "Trentino-Alto Adige"
+                                        ],
+                                        "provincia": [
+                                            "Trento"
+                                        ],
+                                        "cap": [
+                                            "38068"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "allegati": [
+                            {
+                                "allegato": [
+                                    {
+                                        "$": {
+                                            "mime-type": "image/jpeg",
+                                            "index": "1",
+                                            "mibacid": "19795"
+                                        },
+                                        "url": [
+                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Rovereto, Casa natale di Antonio Rosmini.JPG"
+                                        ],
+                                        "didascalia": [
+                                            ""
+                                        ],
+                                        "descrizione": [
+                                            ""
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "allegato": [
+                                    {
+                                        "$": {
+                                            "mime-type": "image/jpeg",
+                                            "index": "2",
+                                            "mibacid": "19796"
+                                        },
+                                        "url": [
+                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Rovereto, Casa natale di Antonio Rosmini1.JPG"
+                                        ],
+                                        "didascalia": [
+                                            ""
+                                        ],
+                                        "descrizione": [
+                                            ""
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "allegato": [
+                                    {
+                                        "$": {
+                                            "mime-type": "image/jpeg",
+                                            "index": "3",
+                                            "mibacid": "19797"
+                                        },
+                                        "url": [
+                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Rovereto, Casa natale di Antonio Rosmini2.JPG"
+                                        ],
+                                        "didascalia": [
+                                            ""
+                                        ],
+                                        "descrizione": [
+                                            ""
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "metainfo": [
+                    {
+                        "workflow": [
+                            {
+                                "stato": [
+                                    "Pubblicato"
+                                ],
+                                "enteCompilatore": [
+                                    {
+                                        "$": {
+                                            "ruolo": "Compilatore"
+                                        },
+                                        "denominazione": [
+                                            "Trentino-alto Adige"
+                                        ]
+                                    }
+                                ],
+                                "dataValidazione": [
+                                    "2014-01-31 12:44:00"
+                                ],
+                                "dataUltimaModifica": [
+                                    "2021-04-21 10:56:23"
+                                ]
+                            }
+                        ],
+                        "datacreazionexml": [
+                            "2020-04-14 17:54:53"
+                        ],
+                        "sorgente": [
+                            "MiBAC"
+                        ]
+                    }
+                ],
+                "luogodellacultura": [
+                    {
+                        "identificatore": [
+                            {
+                                "codice": [
+                                    "4652"
+                                ]
+                            }
+                        ],
+                        "tipologie": [
+                            {
+                                "$": {
+                                    "tipologiaPrevalente": "Museo, Galleria e/o raccolta"
+                                }
+                            }
+                        ],
+                        "categorie": [
+                            {
+                                "$": {
+                                    "categoriaPrevalente": "Sito Default"
+                                }
+                            }
+                        ],
+                        "proprieta": [
+                            "Altro Ente Pubblico"
+                        ],
+                        "denominazione": [
+                            {
+                                "nomestandard": [
+                                    "Galleria Museo \"Fortunato Depero\""
+                                ]
+                            }
+                        ],
+                        "descrizione": [
+                            {
+                                "testostandard": [
+                                    "Un museo-laboratorio, unico in Italia, realizza il progetto ideato da Depero.La Casa d'Arte Futurista Fortunato Depero è la terza sede del Mart (oltre a quelle di Trento e Rovereto) ed è inaugurata, dopo un lungo periodo di ristrutturazione, nel gennaio 2009 in occasione del centenario del Futurismo. Non è solo un museo, ma un laboratorio che realizza in modo completo il progetto ideato da Depero nel 1919 e solo parzialmente realizzato nel 1959 nello storico edificio della Galleria Museo Fortunato Depero, un anno prima della sua scomparsa. Accanto alla sala in cui sono esposte le grandi tarsie di panno, che costituiscono il tesoro più prezioso e più originale dell’intera raccolta di Depero, ci sono gli spazi dedicati in particolare agli anni 1917–1918, periodo di straordinaria creatività per il giovane Depero a contatto con il mondo internazionale dei Balletti russi di Diaghilev, e agli anni 1928–1930, il cosiddetto periodo newyorchese Unico esempio di museo futurista realizzato in Italia da un futurista stesso, l'idea nacque nel 1957, con una convenzione stipulata tra Depero ed il Comune di Rovereto il quale, in cambio della produzione artistica dell'autore, destinava uno stabile della Rovereto medioevale, l’ex sede del Monte di pietà, per collocarvi permanentemente le opere del maestro futurista. Circa 3000 gli oggetti lasciati dall'artista alla città, fra dipinti, disegni, tarsie in panno ed in buxus, collages, manifesti e locandine, mobili, giocattoli e prodotti d'arte applicata. La collezione costituisce anche eccellente panoramica sull'intero futurismo italiano. La riapertura della sede completa inoltre un percorso museografico che conduce il visitatore attraverso il centro storico di Rovereto. "
+                                ]
+                            }
+                        ],
+                        "info": [
+                            {
+                                "orario": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "responsabile": [
+                                    "-"
+                                ],
+                                "sitoweb": [
+                                    "http://www.mart.trento.it"
+                                ],
+                                "email": [
+                                    "info@mart.trento.it"
+                                ],
+                                "email-certificata": [
+                                    ""
+                                ],
+                                "telefono": [
+                                    {
+                                        "testostandard": [
+                                            "800397760 (verificare gli orari)"
+                                        ]
+                                    }
+                                ],
+                                "fax": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "chiusuraSettimanale": [
+                                    {
+                                        "testostandard": [
+                                            "Lunedì|Martedi|Mercoledi|Giovedi|Venerdi|Sabato|Domenica"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "enteCompetente": [
+                            {
+                                "$": {
+                                    "ruolo": "Responsabile"
+                                },
+                                "identificatore": [
+                                    {
+                                        "codice": [
+                                            {
+                                                "_": "1",
+                                                "$": {
+                                                    "codifica": "numero",
+                                                    "sorgente": "MiBAC"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "denominazione": [
+                                    "Mibac"
+                                ]
+                            }
+                        ],
+                        "biglietteria": [
+                            {
+                                "telefono-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            "800397760 (verificare gli orari)"
+                                        ]
+                                    }
+                                ],
+                                "fax-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "email-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            "info@mart.trento.it"
+                                        ]
+                                    }
+                                ],
+                                "costo": [
+                                    {
+                                        "testostandard": [
+                                            "7,00"
+                                        ]
+                                    }
+                                ],
+                                "riduzioni": [
+                                    {
+                                        "testostandard": [
+                                            "4,00"
+                                        ]
+                                    }
+                                ],
+                                "orario-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "prenotazioni": [
+                            {
+                                "$": {
+                                    "tipo": "Nessuna"
+                                },
+                                "sitoweb": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "email": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "telefono": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "fax": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "indirizzi": [
+                            {
+                                "indirizzo": [
+                                    {
+                                        "$": {
+                                            "denominazione": "Sede Principale"
+                                        },
+                                        "via-piazza": [
+                                            "Via della Terra"
+                                        ],
+                                        "comune": [
+                                            "Rovereto"
+                                        ],
+                                        "regione": [
+                                            "Trentino-Alto Adige"
+                                        ],
+                                        "provincia": [
+                                            "Trento"
+                                        ],
+                                        "cap": [
+                                            "38068"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "allegati": [
+                            {
+                                "allegato": [
+                                    {
+                                        "$": {
+                                            "mime-type": "image/jpeg",
+                                            "index": "1",
+                                            "mibacid": "19804"
+                                        },
+                                        "url": [
+                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Rovereto, Galleria Museo Fortunato Depero.jpg"
+                                        ],
+                                        "didascalia": [
+                                            ""
+                                        ],
+                                        "descrizione": [
+                                            ""
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "metainfo": [
+                    {
+                        "workflow": [
+                            {
+                                "stato": [
+                                    "Pubblicato"
+                                ],
+                                "enteCompilatore": [
+                                    {
+                                        "$": {
+                                            "ruolo": "Compilatore"
+                                        },
+                                        "denominazione": [
+                                            "Trentino-alto Adige"
+                                        ]
+                                    }
+                                ],
+                                "dataValidazione": [
+                                    "2017-11-16 15:05:00"
+                                ],
+                                "dataUltimaModifica": [
+                                    "2021-06-25 10:37:16"
+                                ]
+                            }
+                        ],
+                        "datacreazionexml": [
+                            "2020-04-14 17:52:07"
+                        ],
+                        "sorgente": [
+                            "MiBAC"
+                        ]
+                    }
+                ],
+                "luogodellacultura": [
+                    {
+                        "identificatore": [
+                            {
+                                "codice": [
+                                    "1477"
                                 ]
                             }
                         ],
@@ -900,14 +940,14 @@
                         "denominazione": [
                             {
                                 "nomestandard": [
-                                    "Castello del Buonconsiglio"
+                                    "MART - Museo di arte moderna e contemporanea di Trento Rovereto"
                                 ]
                             }
                         ],
                         "descrizione": [
                             {
                                 "testostandard": [
-                                    "Il Castello del Buonconsiglio è il più vasto e importante complesso monumentale della regione Trentino Alto Adige. Dal secolo XIII fino alla fine del XVIII residenza dei principi vescovi di Trento, è composto da una serie di edifici di epoca diversa, racchiusi entro una cinta di mura in una posizione leggermente elevata rispetto alla città. Castelvecchio è il nucleo più antico, dominato da una possente torre cilindrica; il Magno Palazzo è l’ampliamento cinquecentesco nelle forme del Rinascimento italiano, voluto dal principe vescovo e cardinale Bernardo Cles (1485-1539); alla fine del Seicento risale invece la barocca Giunta Albertiana. All’estremità meridionale del complesso si trova Torre Aquila, che conserva all’interno il celebre Ciclo dei Mesi, uno dei più affascinanti cicli pittorici di tema profano del tardo Medioevo. Soprattutto per la presenza di vasti cicli di affreschi, di straordinario interesse è l’apparato decorativo interno, realizzato dai vescovi in prevalenza nel periodo tardo-medioevale e in quello rinascimentale. Dopo la fine del principato vescovile (1803) il castello venne adibito a caserma; restaurato, nel 1924 divenne sede del Museo Nazionale e dal 1973 appartiene alla Provincia autonoma di Trento. Attualmente è il polo principale di un sistema museale formato da cinque castelli, fra i più suggestivi e prestigiosi del territorio trentino: a quello di Trento fanno riferimento il Castello di Stenico, nelle Valli Giudicarie, Castel Beseno, nella Valle dell’Adige, fra Trento e Rovereto,  Castel Thun, in Valle di Non e Castel Caldes in Val di Sole"
+                                    "E'  una sorta di “spazio enciclopedico” che riunisce in un unico complesso architettonico un Museo d’arte, un Archivio del Novecento, una Biblioteca specialistica, un Auditorium. Così si presenta la nuova sede del Mart di Rovereto, progettata da un famoso architetto ticinese, Mario Botta, in collaborazione con un apprezzato ingegnere trentino, Giulio Andreolli. Dal giorno della sua inaugurazione, avvenuta il 15 dicembre 2002, il polo culturale roveretano è divenuto un punto di riferimento nazionale e internazionale nel campo della ricerca, della conservazione e della valorizzazione delle arti figurative dell’età contemporanea, dal Romanticismo ai giorni nostri. La storia del Mart era iniziata, però, quindici anni prima, nel 1987, con l’istituzione di un Museo a carattere provinciale, destinato ad accogliere – nella sede centrale di Palazzo Albere a Trento, nell’Archivio del ’900 e nella Casa-Museo di Depero a Rovereto – le raccolte d’arte moderna e contemporanea acquisite negli ultimi due secoli dai Comuni di Trento, di Rovereto e dalla Provincia autonoma e l’importante lascito di opere e documenti di Fortunato Depero (Fondo, 1892 – Rovereto, 1960),  uno dei protagonisti del movimento futurista. Dalla primavera del 1998 è conservata al Mart la prestigiosa collezione di Augusto e Francesca Giovanardi con capolavori della pittura italiana del XX secolo – tra cui 21 dipinti di Giorgio Morandi – firmati da Carlo Carrà, Mario Sironi, Massimo Campigli, Filippo De Pisis e Osvaldo Licini. Alla Fondazione VAF-Stiftung di Francoforte appartengono, invece, opere significative di Carrà , De Chirico e Casorati , anch’esse in deposito. Nel percorso espositivo permanente sono  presenti i movimenti artistici del dopoguerra, dall’astrattismo alle esperienze degli anni Sessanta e Settanta (arte povera, minimal art, concettuale, transavanguardia), dall’arte di fine ’900 fino alle recentissime novità di inizio XXI secolo. Elementi distintivi del Mart sono, infine, l’Archivio del ’900 – dove sono confluiti fondi documentari di grande importanza di artisti, come  Depero, Severini e Carrà, architetti (Mazzoni, Baldessari, Sottsass, Gigiotti Zanini) e critici d’arte, quali Carlo Belli e Silvio Branzi – e la Biblioteca, che conta circa 60.000 volumi, tra cataloghi di mostre, biografie di artisti, dizionari e altre tipologie librarie."
                                 ]
                             }
                         ],
@@ -916,18 +956,18 @@
                                 "orario": [
                                     {
                                         "testostandard": [
-                                            ""
+                                            "Martedi (10:00,18:00)|Mercoledi (10:00,18:00)|Giovedi (10:00,18:00)|Venerdi (10:00,21:00)|Sabato (10:00,18:00)|Domenica (10:00,18:00)"
                                         ]
                                     }
                                 ],
                                 "responsabile": [
-                                    "-"
+                                    "dott. Gianfranco Maraniello"
                                 ],
                                 "sitoweb": [
-                                    "http://www.buonconsiglio.it"
+                                    "http://www.mart.trento.it"
                                 ],
                                 "email": [
-                                    "info@buonconsiglio.it"
+                                    "info@mart.trento.it"
                                 ],
                                 "email-certificata": [
                                     ""
@@ -935,553 +975,7 @@
                                 "telefono": [
                                     {
                                         "testostandard": [
-                                            "0461233770"
-                                        ]
-                                    }
-                                ],
-                                "fax": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "chiusuraSettimanale": [
-                                    {
-                                        "testostandard": [
-                                            "Lunedì|Martedi|Mercoledi|Giovedi|Venerdi|Sabato|Domenica"
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "enteCompetente": [
-                            {
-                                "$": {
-                                    "ruolo": "Responsabile"
-                                },
-                                "identificatore": [
-                                    {
-                                        "codice": [
-                                            {
-                                                "_": "1",
-                                                "$": {
-                                                    "codifica": "numero",
-                                                    "sorgente": "MiBAC"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "denominazione": [
-                                    "Mibac"
-                                ]
-                            }
-                        ],
-                        "biglietteria": [
-                            {
-                                "telefono-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            "0461233770"
-                                        ]
-                                    }
-                                ],
-                                "fax-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "email-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            "info@buonconsiglio.it"
-                                        ]
-                                    }
-                                ],
-                                "costo": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "riduzioni": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "orario-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "prenotazioni": [
-                            {
-                                "$": {
-                                    "tipo": "Nessuna"
-                                },
-                                "sitoweb": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "email": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "telefono": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "fax": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "indirizzi": [
-                            {
-                                "indirizzo": [
-                                    {
-                                        "$": {
-                                            "denominazione": "Sede Principale"
-                                        },
-                                        "via-piazza": [
-                                            "Via Bernardo Clesio"
-                                        ],
-                                        "comune": [
-                                            "Trento"
-                                        ],
-                                        "regione": [
-                                            "Trentino-Alto Adige"
-                                        ],
-                                        "provincia": [
-                                            "Trento"
-                                        ],
-                                        "cap": [
-                                            "38100"
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "allegati": [
-                            {
-                                "allegato": [
-                                    {
-                                        "$": {
-                                            "mime-type": "image/jpeg",
-                                            "index": "1",
-                                            "mibacid": "27236"
-                                        },
-                                        "url": [
-                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/1castello del buonconsiglio.jpg"
-                                        ],
-                                        "didascalia": [
-                                            ""
-                                        ],
-                                        "descrizione": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "metainfo": [
-                    {
-                        "workflow": [
-                            {
-                                "stato": [
-                                    "Pubblicato"
-                                ],
-                                "enteCompilatore": [
-                                    {
-                                        "$": {
-                                            "ruolo": "Compilatore"
-                                        },
-                                        "denominazione": [
-                                            "Direzione Regionale Musei Veneto"
-                                        ]
-                                    }
-                                ],
-                                "dataValidazione": [
-                                    "2019-02-11 10:54:00"
-                                ],
-                                "dataUltimaModifica": [
-                                    "2021-04-21 13:27:34"
-                                ]
-                            }
-                        ],
-                        "datacreazionexml": [
-                            "2020-04-14 18:00:26"
-                        ],
-                        "sorgente": [
-                            "MiBAC"
-                        ]
-                    }
-                ],
-                "luogodellacultura": [
-                    {
-                        "identificatore": [
-                            {
-                                "codice": [
-                                    "6953"
-                                ]
-                            }
-                        ],
-                        "tipologie": [
-                            {
-                                "$": {
-                                    "tipologiaPrevalente": "Monumento"
-                                }
-                            }
-                        ],
-                        "categorie": [
-                            {
-                                "$": {
-                                    "categoriaPrevalente": "Contenuti Multimediali"
-                                }
-                            }
-                        ],
-                        "proprieta": [
-                            "MiBACT"
-                        ],
-                        "denominazione": [
-                            {
-                                "nomestandard": [
-                                    "Monumento a Cesare Battisti sul Doss"
-                                ]
-                            }
-                        ],
-                        "descrizione": [
-                            {
-                                "testostandard": [
-                                    "Solenne e di notevole impatto scenografico, il Mausoleo dedicato all'uomo che lottò per l'italianità di Trento è stato costruito nel 1935 da Ettore Fagioli, architetto veronese.\r\nIl Mausoleo, dalla forma circolare mutuata dal mondo classico, si caratterizza per un sapiente gioco di contrasti: spazi pieni e spazi vuoti, giochi di luce e ombre e per la scelta dei materiali, tutti provenienti dal Trentino. Colpisce il colonnato che si erge sul corpo di fabbrica principale: sedici colonne, alte più di dieci metri, formano una corona circolare che accoglie, al centro, l'altare sul quale poggia la grande area tombale commemorativa. Tre grandi aperture conducono all'interno del monumento, dove nell'ipogeo è posta la cella che custodisce l'arca con le spoglie di Battisti."
-                                ]
-                            }
-                        ],
-                        "info": [
-                            {
-                                "orario": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "responsabile": [
-                                    "-"
-                                ],
-                                "sitoweb": [
-                                    "http://www.comune.trento.it/Aree-tematiche/Turismo/Visitare/Altri-siti-di-interesse-storico-artistico/Mausoleo-di-Cesare-Battisti"
-                                ],
-                                "email": [
-                                    "pm-ven@beniculturali.it"
-                                ],
-                                "email-certificata": [
-                                    ""
-                                ],
-                                "telefono": [
-                                    {
-                                        "testostandard": [
-                                            "+39 041 2967611"
-                                        ]
-                                    }
-                                ],
-                                "fax": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "chiusuraSettimanale": [
-                                    {
-                                        "testostandard": [
-                                            "Lunedì|Martedi|Mercoledi|Giovedi|Venerdi|Sabato|Domenica"
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "enteCompetente": [
-                            {
-                                "$": {
-                                    "ruolo": "Responsabile"
-                                },
-                                "identificatore": [
-                                    {
-                                        "codice": [
-                                            {
-                                                "_": "301",
-                                                "$": {
-                                                    "codifica": "numero",
-                                                    "sorgente": "MiBAC"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "denominazione": [
-                                    "Direzione Regionale Musei Veneto"
-                                ]
-                            }
-                        ],
-                        "biglietteria": [
-                            {
-                                "telefono-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            "+39 041 2967611"
-                                        ]
-                                    }
-                                ],
-                                "fax-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "email-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            "pm-ven@beniculturali.it"
-                                        ]
-                                    }
-                                ],
-                                "costo": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "riduzioni": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "orario-biglietteria": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "prenotazioni": [
-                            {
-                                "$": {
-                                    "tipo": "Nessuna"
-                                },
-                                "sitoweb": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "email": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "telefono": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ],
-                                "fax": [
-                                    {
-                                        "testostandard": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "indirizzi": [
-                            {
-                                "indirizzo": [
-                                    {
-                                        "$": {
-                                            "denominazione": "Sede Principale"
-                                        },
-                                        "via-piazza": [
-                                            "via Doss Trento"
-                                        ],
-                                        "comune": [
-                                            "Trento"
-                                        ],
-                                        "regione": [
-                                            "Trentino-Alto Adige"
-                                        ],
-                                        "provincia": [
-                                            "Trento"
-                                        ],
-                                        "cap": [
-                                            "38122"
-                                        ]
-                                    }
-                                ]
-                            }
-                        ],
-                        "allegati": [
-                            {
-                                "allegato": [
-                                    {
-                                        "$": {
-                                            "mime-type": "image/jpeg",
-                                            "index": "1",
-                                            "mibacid": "19827"
-                                        },
-                                        "url": [
-                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Trento, Monumento a Cesare Battisti sul Doss.jpg"
-                                        ],
-                                        "didascalia": [
-                                            ""
-                                        ],
-                                        "descrizione": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "metainfo": [
-                    {
-                        "workflow": [
-                            {
-                                "stato": [
-                                    "Pubblicato"
-                                ],
-                                "enteCompilatore": [
-                                    {
-                                        "$": {
-                                            "ruolo": "Compilatore"
-                                        },
-                                        "denominazione": [
-                                            "Trentino-alto Adige"
-                                        ]
-                                    }
-                                ],
-                                "dataValidazione": [
-                                    "2019-03-13 11:13:00"
-                                ],
-                                "dataUltimaModifica": [
-                                    "2021-11-22 08:50:28"
-                                ]
-                            }
-                        ],
-                        "datacreazionexml": [
-                            "2020-04-14 17:59:27"
-                        ],
-                        "sorgente": [
-                            "MiBAC"
-                        ]
-                    }
-                ],
-                "luogodellacultura": [
-                    {
-                        "identificatore": [
-                            {
-                                "codice": [
-                                    "6826"
-                                ]
-                            }
-                        ],
-                        "tipologie": [
-                            {
-                                "$": {
-                                    "tipologiaPrevalente": "Museo, Galleria e/o raccolta"
-                                }
-                            }
-                        ],
-                        "categorie": [
-                            {
-                                "$": {
-                                    "categoriaPrevalente": "Nuclei Carabinieri TCP"
-                                }
-                            }
-                        ],
-                        "proprieta": [
-                            "Provincia"
-                        ],
-                        "denominazione": [
-                            {
-                                "nomestandard": [
-                                    "MUSE - Museo delle Scienze di Trento"
-                                ]
-                            }
-                        ],
-                        "descrizione": [
-                            {
-                                "testostandard": [
-                                    "In un'ex area industriale di circa 19 mila mq, la Provincia autonoma di Trento ha chiesto a Renzo Piano non solo un museo, ma un centro di riflessione sul rapporto tra natura e uomo. Ed è nato il MUSE. Talmente riuscito che, unico museo italiano, si è meritato una menzione d'onore all'European Museum of the Year Awards 2015.Dalle montagne alle sfide della sostenibilità, dai primi uomini ai segreti del DNA. Con “effetti speciali” per vivere le stesse emozioni di una scalata sulle pareti dolomitiche o di una discesa libera con gli sci.Mentre è realtà toccare con mano fossili e minerali, usare il microscopio, entrare nella grande serra con piante vive della foresta della Tanzania.E ancora, le impronte fossili dei dinosauri della regione alpina, le prime pietre dipinte e le armi dei cacciatori preistorici dell’età glaciale.In una palestra della scienza s'imparano i principi di fisica e meccanica con installazioni interattive.***Prima di programmare una visita si consiglia di consultare il sito o contattare il luogo "
-                                ]
-                            }
-                        ],
-                        "info": [
-                            {
-                                "orario": [
-                                    {
-                                        "testostandard": [
-                                            "Martedi (10:00,18:00)|Mercoledi (10:00,18:00)|Giovedi (10:00,18:00)|Venerdi (10:00,18:00)|Sabato (10:00,19:00)|Domenica (10:00,19:00)"
-                                        ]
-                                    }
-                                ],
-                                "responsabile": [
-                                    "-"
-                                ],
-                                "sitoweb": [
-                                    "http://www.muse.it/"
-                                ],
-                                "email": [
-                                    "museinfo@muse.it"
-                                ],
-                                "email-certificata": [
-                                    "museodellescienze@pec.it"
-                                ],
-                                "telefono": [
-                                    {
-                                        "testostandard": [
-                                            "+39 0461270311"
+                                            "800397760"
                                         ]
                                     }
                                 ],
@@ -1529,7 +1023,7 @@
                                 "telefono-biglietteria": [
                                     {
                                         "testostandard": [
-                                            "+39 0461270311"
+                                            "800397760"
                                         ]
                                     }
                                 ],
@@ -1543,7 +1037,7 @@
                                 "email-biglietteria": [
                                     {
                                         "testostandard": [
-                                            "museinfo@muse.it"
+                                            "info@mart.trento.it"
                                         ]
                                     }
                                 ],
@@ -1557,14 +1051,14 @@
                                 "riduzioni": [
                                     {
                                         "testostandard": [
-                                            "9,00"
+                                            "7,00"
                                         ]
                                     }
                                 ],
                                 "orario-biglietteria": [
                                     {
                                         "testostandard": [
-                                            "Martedi (10:00,18:00)|Mercoledi (10:00,18:00)|Giovedi (10:00,18:00)|Venerdi (10:00,18:00)|Sabato (10:00,19:00)|Domenica (10:00,19:00)"
+                                            "Martedi (10:00,18:00)|Mercoledi (10:00,18:00)|Giovedi (10:00,18:00)|Venerdi (10:00,21:00)|Sabato (10:00,18:00)|Domenica (10:00,18:00)"
                                         ]
                                     }
                                 ]
@@ -1573,12 +1067,12 @@
                         "prenotazioni": [
                             {
                                 "$": {
-                                    "tipo": "Obbligatoria"
+                                    "tipo": "Facoltativa"
                                 },
                                 "sitoweb": [
                                     {
                                         "testostandard": [
-                                            "https://www.ticketlandia.com/m/muse-trento"
+                                            "https://biglietti.mioticket.it/default.aspx"
                                         ]
                                     }
                                 ],
@@ -1613,10 +1107,10 @@
                                             "denominazione": "Sede Principale"
                                         },
                                         "via-piazza": [
-                                            "Corso del Lavoro e della Scienza"
+                                            "Corso Bettini"
                                         ],
                                         "comune": [
-                                            "Trento"
+                                            "Rovereto"
                                         ],
                                         "regione": [
                                             "Trentino-Alto Adige"
@@ -1625,7 +1119,7 @@
                                             "Trento"
                                         ],
                                         "cap": [
-                                            "38122"
+                                            "38068"
                                         ]
                                     }
                                 ]
@@ -1638,10 +1132,10 @@
                                         "$": {
                                             "mime-type": "image/jpeg",
                                             "index": "1",
-                                            "mibacid": "19825"
+                                            "mibacid": "19791"
                                         },
                                         "url": [
-                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Trento, Museo delle scienze.jpg"
+                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Rovereto, MART - Museo di arte moderna e contemporanea di Trento Rovereto.jpg"
                                         ],
                                         "didascalia": [
                                             ""
@@ -1675,10 +1169,10 @@
                                     }
                                 ],
                                 "dataValidazione": [
-                                    "2017-04-04 12:28:00"
+                                    "2014-01-31 12:52:00"
                                 ],
                                 "dataUltimaModifica": [
-                                    "2021-04-21 12:55:26"
+                                    "2021-04-21 10:40:24"
                                 ]
                             }
                         ],
@@ -1695,7 +1189,7 @@
                         "identificatore": [
                             {
                                 "codice": [
-                                    "1486"
+                                    "1476"
                                 ]
                             }
                         ],
@@ -1709,24 +1203,24 @@
                         "categorie": [
                             {
                                 "$": {
-                                    "categoriaPrevalente": "Sito Default"
+                                    "categoriaPrevalente": "Luogo"
                                 }
                             }
                         ],
                         "proprieta": [
-                            "Ente Ecclesiastico o Religioso"
+                            "Comune"
                         ],
                         "denominazione": [
                             {
                                 "nomestandard": [
-                                    "Museo diocesano tridentino"
+                                    "Museo civico di Rovereto"
                                 ]
                             }
                         ],
                         "descrizione": [
                             {
                                 "testostandard": [
-                                    "Il museo diocesano tridentino venne fondato nel 1903 allo scopo di salvaguardare il patrimonio artistico della diocesi e con l'intento di farne strumento didattico per la scuola d'arte e di archeologia cristiana del Seminario Teologico."
+                                    "Il museo ha sede all'interno di palazzo Parolari. Il percorso espositivo permanente è collocato in sei sale al secondo piano, in attesa di riallestire nuove sezioni al pianterreno, compresa quella Paleontologica con i calchi delle orme dei dinosauri scoperte ai Lavini di Marco. La prima sala ospita una selezione della collezione ornitologica, la più importante della provincia con 1200 esemplari, in gran parte di provenienza locale.  Seguono le sezioni dedicate ai mammiferi europei, in particolare alpini (orso, lupo, cervo, stambecco, camosci, ecc.) e a quelli esotici (leone, leopardo, scimmia). Nelle tre sale rimanenti sono collocate le collezioni archeologiche. In apposite vetrine sono esposti reperti pre-protostorici (asce in pietra levigata, strumenti in selce, manufatti in lega di rame, terracotte), materiali d’epoca romana e medievale, monete e lapidi – in larga parte provenienti da ritrovamenti fortuiti e campagne di scavo in vari siti del Trentino meridionale (Corsi d’Isera, Corno di Mori, grotte di Castel Corno, Pizzini di Castellano, Colombo di Mori, ecc.) – ma anche la ricca ed eterogenea raccolta di antichità lasciata da Orsi a Rovereto, che comprende molti materiali della Magna Grecia e oltre 1100 esemplari di monete greche. Al terzo piano sono stati ricavati locali per mostre temporanee e una sala convegni, mentre il piano terra ospita, oltre a spazi espositivi, un ambiente dove si raccontano i 160 anni di storia dell’importante istituzione culturale. Nel giardino del Museo si trova un modernissimo Planetario, uno strumento sofisticato per svelare i misteri della volta stellata, che costituisce – insieme all’Osservatorio astronomico di Monte Zugna attivo dal 1997 – la sezione astronomica del Museo. Fuori e dentro la città il Museo Civico di Rovereto gestisce altri siti culturali e sperimentali: dal sito paleontologico dei Lavini di Marco con le orme di dinosauri carnivori ed erbivori vissuti milioni di anni fa all’orto botanico a Brentonico presso Palazzo éccheli-Baisi; dalla Villa Romana d’Isera al settecentesco Palazzo Alberti in Corso Bettini con la mostra permanente del lascito Carlo Fait, per finire con Sperimentarea, una “cittadella per la ricerca scientifica e la didattica” con spazi dedicati all’archeologia sperimentale e alle attività naturalistiche, presso il Bosco della Città, poco lontano dal centro cittadino.Nel 2011 sono state aperte anche le sale al piano terra con le sezioni di mineralogia, petrologia, paleontologia e degli invertebrati."
                                 ]
                             }
                         ],
@@ -1743,10 +1237,10 @@
                                     "-"
                                 ],
                                 "sitoweb": [
-                                    "http://www.museodiocesanotridentino.it"
+                                    "http://www.museocivico.rovereto.tn.it"
                                 ],
                                 "email": [
-                                    "info@museodiocesanotridentino.it"
+                                    "museo@museocivico.rovereto.tn.it"
                                 ],
                                 "email-certificata": [
                                     ""
@@ -1754,7 +1248,7 @@
                                 "telefono": [
                                     {
                                         "testostandard": [
-                                            "0461234419"
+                                            "0464439055"
                                         ]
                                     }
                                 ],
@@ -1802,7 +1296,7 @@
                                 "telefono-biglietteria": [
                                     {
                                         "testostandard": [
-                                            "0461234419"
+                                            "0464439055"
                                         ]
                                     }
                                 ],
@@ -1816,21 +1310,21 @@
                                 "email-biglietteria": [
                                     {
                                         "testostandard": [
-                                            "info@museodiocesanotridentino.it"
+                                            "museo@museocivico.rovereto.tn.it"
                                         ]
                                     }
                                 ],
                                 "costo": [
                                     {
                                         "testostandard": [
-                                            ""
+                                            "5,00"
                                         ]
                                     }
                                 ],
                                 "riduzioni": [
                                     {
                                         "testostandard": [
-                                            ""
+                                            "3,00"
                                         ]
                                     }
                                 ],
@@ -1886,10 +1380,10 @@
                                             "denominazione": "Sede Principale"
                                         },
                                         "via-piazza": [
-                                            "Piazza Duomo"
+                                            "Borgo Santa Caterina"
                                         ],
                                         "comune": [
-                                            "Trento"
+                                            "Rovereto"
                                         ],
                                         "regione": [
                                             "Trentino-Alto Adige"
@@ -1898,7 +1392,7 @@
                                             "Trento"
                                         ],
                                         "cap": [
-                                            "38122"
+                                            "38068"
                                         ]
                                     }
                                 ]
@@ -1911,10 +1405,283 @@
                                         "$": {
                                             "mime-type": "image/jpeg",
                                             "index": "1",
-                                            "mibacid": "19820"
+                                            "mibacid": "19798"
                                         },
                                         "url": [
-                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Trento, Museo diocesano tridentino.jpg"
+                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Rovereto, Museo civico.jpg"
+                                        ],
+                                        "didascalia": [
+                                            ""
+                                        ],
+                                        "descrizione": [
+                                            ""
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "metainfo": [
+                    {
+                        "workflow": [
+                            {
+                                "stato": [
+                                    "Pubblicato"
+                                ],
+                                "enteCompilatore": [
+                                    {
+                                        "$": {
+                                            "ruolo": "Compilatore"
+                                        },
+                                        "denominazione": [
+                                            "Archivio Centrale Dello Stato"
+                                        ]
+                                    }
+                                ],
+                                "dataValidazione": [
+                                    "2014-02-03 09:10:00"
+                                ],
+                                "dataUltimaModifica": [
+                                    "2021-08-13 15:50:50"
+                                ]
+                            }
+                        ],
+                        "datacreazionexml": [
+                            "2020-04-14 17:52:07"
+                        ],
+                        "sorgente": [
+                            "MiBAC"
+                        ]
+                    }
+                ],
+                "luogodellacultura": [
+                    {
+                        "identificatore": [
+                            {
+                                "codice": [
+                                    "1478"
+                                ]
+                            }
+                        ],
+                        "tipologie": [
+                            {
+                                "$": {
+                                    "tipologiaPrevalente": "Museo, Galleria e/o raccolta"
+                                }
+                            }
+                        ],
+                        "categorie": [
+                            {
+                                "$": {
+                                    "categoriaPrevalente": "Contenuti Multimediali"
+                                }
+                            }
+                        ],
+                        "proprieta": [
+                            "Associazione Riconosciuta"
+                        ],
+                        "denominazione": [
+                            {
+                                "nomestandard": [
+                                    "Museo storico italiano della guerra"
+                                ]
+                            }
+                        ],
+                        "descrizione": [
+                            {
+                                "testostandard": [
+                                    "Dal 1921 il Museo Storico Italiano della Guerra si occupa dei conflitti dall’età moderna ai giorni nostri, con particolare attenzione alla Prima guerra mondiale. Ospitato nel suggestivo castello di Rovereto, è luogo di conservazione, ricerca ed educazione sul tema delle guerre e del loro impatto sulla società, sulla cultura e sul paesaggio. Il Museo, che nel 2021 festeggia i cento anni dalla sua fondazione, è uno dei principali musei storici italiani e offre un’esperienza di visita coinvolgente, con una ricca esposizione permanente e mostre temporanee. Nel corso dell’anno organizza numerose iniziative culturali rivolte a tutte le fasce di pubblico, anche in collaborazione con altri enti e istituzioni del territorio.Il percorso di visita si articola su due livelli: da un lato gli eserciti e le guerre tra l’Ottocento e Grande Guerra, dall’altro il Castello e le armi di età moderna. La visita si conclude nella sezione “Artiglierie 1914-18”, ricavata in un ex rifugio antiaereo scavato durante la Seconda guerra mondiale, dove sono esposte decine di pezzi di artiglieria italiani, austro-ungarici, tedeschi, inglesi della Prima guerra mondiale.Dettagli orario link"
+                                ]
+                            }
+                        ],
+                        "info": [
+                            {
+                                "orario": [
+                                    {
+                                        "testostandard": [
+                                            "Martedi (10:30,18:00)|Mercoledi (10:30,18:00)|Giovedi (10:30,18:00)|Venerdi (10:30,18:00)|Sabato (10:30,18:00)|Domenica (10:30,18:00)"
+                                        ]
+                                    }
+                                ],
+                                "responsabile": [
+                                    "dott. Francesco Frizzera"
+                                ],
+                                "sitoweb": [
+                                    "www.museodellaguerra.it"
+                                ],
+                                "email": [
+                                    "info@museodellaguerra.it"
+                                ],
+                                "email-certificata": [
+                                    ""
+                                ],
+                                "telefono": [
+                                    {
+                                        "testostandard": [
+                                            "+39 0464438100"
+                                        ]
+                                    }
+                                ],
+                                "fax": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "chiusuraSettimanale": [
+                                    {
+                                        "testostandard": [
+                                            "Lunedì"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "enteCompetente": [
+                            {
+                                "$": {
+                                    "ruolo": "Responsabile"
+                                },
+                                "identificatore": [
+                                    {
+                                        "codice": [
+                                            {
+                                                "_": "1",
+                                                "$": {
+                                                    "codifica": "numero",
+                                                    "sorgente": "MiBAC"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "denominazione": [
+                                    "Mibac"
+                                ]
+                            }
+                        ],
+                        "biglietteria": [
+                            {
+                                "telefono-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            "+39 0464438100"
+                                        ]
+                                    }
+                                ],
+                                "fax-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "email-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            "info@museodellaguerra.it"
+                                        ]
+                                    }
+                                ],
+                                "costo": [
+                                    {
+                                        "testostandard": [
+                                            "9,00"
+                                        ]
+                                    }
+                                ],
+                                "riduzioni": [
+                                    {
+                                        "testostandard": [
+                                            "7,00"
+                                        ]
+                                    }
+                                ],
+                                "orario-biglietteria": [
+                                    {
+                                        "testostandard": [
+                                            "Martedi (10:30,18:00)|Mercoledi (10:30,18:00)|Giovedi (10:30,18:00)|Venerdi (10:30,18:00)|Sabato (10:30,18:00)|Domenica (10:30,18:00)"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "prenotazioni": [
+                            {
+                                "$": {
+                                    "tipo": "Facoltativa"
+                                },
+                                "sitoweb": [
+                                    {
+                                        "testostandard": [
+                                            "http://www.midaticket.it/eventi/museo-della-guerra"
+                                        ]
+                                    }
+                                ],
+                                "email": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "telefono": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "fax": [
+                                    {
+                                        "testostandard": [
+                                            ""
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "indirizzi": [
+                            {
+                                "indirizzo": [
+                                    {
+                                        "$": {
+                                            "denominazione": "Sede Principale"
+                                        },
+                                        "via-piazza": [
+                                            "Via Castelbarco, 7"
+                                        ],
+                                        "comune": [
+                                            "Rovereto"
+                                        ],
+                                        "regione": [
+                                            "Trentino-Alto Adige"
+                                        ],
+                                        "provincia": [
+                                            "Trento"
+                                        ],
+                                        "cap": [
+                                            "38068"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "allegati": [
+                            {
+                                "allegato": [
+                                    {
+                                        "$": {
+                                            "mime-type": "image/jpeg",
+                                            "index": "1",
+                                            "mibacid": "24591"
+                                        },
+                                        "url": [
+                                            "http://media.beniculturali.it/mibac/files/boards/be78e33bc8ca0c99bff70aa174035096/Luoghi/Museo Guerra Rovereto_2021.jpg"
                                         ],
                                         "didascalia": [
                                             ""
@@ -1948,10 +1715,10 @@
                                     }
                                 ],
                                 "dataValidazione": [
-                                    "2016-03-02 14:37:00"
+                                    "2016-03-02 14:36:00"
                                 ],
                                 "dataUltimaModifica": [
-                                    "2021-04-21 13:00:46"
+                                    "2021-04-21 10:51:07"
                                 ]
                             }
                         ],
@@ -1968,7 +1735,7 @@
                         "identificatore": [
                             {
                                 "codice": [
-                                    "1487"
+                                    "1479"
                                 ]
                             }
                         ],
@@ -1987,19 +1754,19 @@
                             }
                         ],
                         "proprieta": [
-                            "Altro Ente Pubblico"
+                            "Comune"
                         ],
                         "denominazione": [
                             {
                                 "nomestandard": [
-                                    "Planetario del Museo Tridentino di Scienze Naturali"
+                                    "Planetario del Museo Civico di Rovereto"
                                 ]
                             }
                         ],
                         "descrizione": [
                             {
                                 "testostandard": [
-                                    "Il MUSE è il museo delle scienze di Trento. Si trova a sud dello storico palazzo delle Albere, in un palazzo all'interno del quartiere residenziale Le Albere, entrambi progettati dall'architetto italiano Renzo Piano."
+                                    "lLPlanetario, con la sua cupola di sei metri di diametro, può ospitare fino a 40 visitatori ed è lo strumento ideale, sia per il pubblico sia per le scuole, per comprendere meglio le leggi che fanno apparire, sopra di noi, il cielo come lo vediamo. Oltre alla sua utilità didattica, il Planetario è un luogo speciale, in cui ci si trova di fronte alla magia di un cielo perfetto per l'osservazione notturna. È uno strumento sofisticato, che si aggiunge all'Osservatorio Astronomico del Monte Zugna per svelare i misteri racchiusi nella volta stellata.La struttura permette di riprodurre in una stanza un cielo realistico, proiettando i diversi oggetti celesti e i loro moti apparenti. E' possibile osservare il percorso diurno del Sole, dall'alba al tramonto, l'arrivo della notte e la comparsa delle stelle, l'effetto della rotazione della Terra a diverse latitudini, le stagioni astronomiche, l'esplosione di una supernova, la forma e il moto di una galassia simile alla Via Lattea, le costellazioni dello Zodiaco, i pianeti del Sistema Solare e la Luna."
                                 ]
                             }
                         ],
@@ -2016,10 +1783,10 @@
                                     "-"
                                 ],
                                 "sitoweb": [
-                                    "http://www.museocaproni.it/"
+                                    "http://www.museocivico.rovereto.tn.it"
                                 ],
                                 "email": [
-                                    "caproni@mtsn.tn.it"
+                                    "museo@museocivico.rovereto.tn.it"
                                 ],
                                 "email-certificata": [
                                     ""
@@ -2027,7 +1794,7 @@
                                 "telefono": [
                                     {
                                         "testostandard": [
-                                            "0461944888"
+                                            "0464439055"
                                         ]
                                     }
                                 ],
@@ -2075,7 +1842,7 @@
                                 "telefono-biglietteria": [
                                     {
                                         "testostandard": [
-                                            "0461944888"
+                                            "0464439055"
                                         ]
                                     }
                                 ],
@@ -2089,7 +1856,7 @@
                                 "email-biglietteria": [
                                     {
                                         "testostandard": [
-                                            "caproni@mtsn.tn.it"
+                                            "museo@museocivico.rovereto.tn.it"
                                         ]
                                     }
                                 ],
@@ -2159,10 +1926,10 @@
                                             "denominazione": "Sede Principale"
                                         },
                                         "via-piazza": [
-                                            "Via Lidorno"
+                                            "Borgo Santa Caterina"
                                         ],
                                         "comune": [
-                                            "Trento"
+                                            "Rovereto"
                                         ],
                                         "regione": [
                                             "Trentino-Alto Adige"
@@ -2171,7 +1938,7 @@
                                             "Trento"
                                         ],
                                         "cap": [
-                                            "38100"
+                                            "38068"
                                         ]
                                     }
                                 ]
@@ -2202,10 +1969,10 @@
                                     }
                                 ],
                                 "dataValidazione": [
-                                    "2016-09-21 10:49:00"
+                                    "2014-02-03 09:17:00"
                                 ],
                                 "dataUltimaModifica": [
-                                    "2021-04-21 13:06:01"
+                                    "2021-04-21 10:53:46"
                                 ]
                             }
                         ],
@@ -2222,14 +1989,14 @@
                         "identificatore": [
                             {
                                 "codice": [
-                                    "1488"
+                                    "1480"
                                 ]
                             }
                         ],
                         "tipologie": [
                             {
                                 "$": {
-                                    "tipologiaPrevalente": "Area Archeologica"
+                                    "tipologiaPrevalente": "Monumento Funerario"
                                 }
                             }
                         ],
@@ -2241,19 +2008,19 @@
                             }
                         ],
                         "proprieta": [
-                            "Provincia"
+                            "Amministrazione dello Stato"
                         ],
                         "denominazione": [
                             {
                                 "nomestandard": [
-                                    "S.A.S.S. - Spazio archeologico sotterraneo SAS"
+                                    "Sacrario militare di Castel Dante"
                                 ]
                             }
                         ],
                         "descrizione": [
                             {
                                 "testostandard": [
-                                    "Il \"S.A.S.S.\" è un'area archeologica che ospita i resti della Tridentum romana corrispondente all'attuale Trento. Il nome ricorda l’antico quartiere cittadino del Sas, smantellato per fare spazio alla Piazza Cesare Battisti"
+                                    "Il Sacrario militare di Rovereto, conosciuto anche con il nome di Castel Dante, è uno dei luoghi più significativi nati in ricordo della Grande Guerra in Italia. Al suo interno si trovano infatti le salme di oltre 20mila soldati appartenuti agli eserciti italiano, austro-ungarico e alla Legione Cecoslovacca, la formazione che nel 1918 affiancò le armate italiane nella Battaglia del Solstizio e in quella Finale. Tra di loro ci sono anche quelle dei due famosi irredentisti trentini Damiano Chiesa e Fabio Filzi, catturati proprio in queste zone durante la Strafexpedition e la successiva controffensiva nel giugno 1916.  Nel 1967 il Sacrario di Castel Dante è stato inserito all'interno di un'area monumentale più ampia che comprende anche la \"\"Strada degli Artiglieri\"\". Nel piazzale esterno invece si possono ammirare vari pezzi d'artiglieria e numerosi monumenti come uno in ricordo del tenente Umberto Pettazzi e uno per commemorare il sacrificio dei Legionari cecoslovacchi morti nelle battaglie attorno al Monte Baldo, poco distante."
                                 ]
                             }
                         ],
@@ -2270,10 +2037,10 @@
                                     "-"
                                 ],
                                 "sitoweb": [
-                                    "http://trentinocultura.net/archeologia.asp"
+                                    ""
                                 ],
                                 "email": [
-                                    "sopr.archeologica@provincia.tn.it"
+                                    "francoburei@virgilio.it"
                                 ],
                                 "email-certificata": [
                                     ""
@@ -2281,7 +2048,7 @@
                                 "telefono": [
                                     {
                                         "testostandard": [
-                                            "0461230171"
+                                            "0464432480"
                                         ]
                                     }
                                 ],
@@ -2329,7 +2096,7 @@
                                 "telefono-biglietteria": [
                                     {
                                         "testostandard": [
-                                            "0461230171"
+                                            "0464432480"
                                         ]
                                     }
                                 ],
@@ -2343,7 +2110,7 @@
                                 "email-biglietteria": [
                                     {
                                         "testostandard": [
-                                            "sopr.archeologica@provincia.tn.it"
+                                            "francoburei@virgilio.it"
                                         ]
                                     }
                                 ],
@@ -2413,10 +2180,10 @@
                                             "denominazione": "Sede Principale"
                                         },
                                         "via-piazza": [
-                                            "Piazza Cesare Battisti"
+                                            "Via Castel Dante"
                                         ],
                                         "comune": [
-                                            "Trento"
+                                            "Rovereto"
                                         ],
                                         "regione": [
                                             "Trentino-Alto Adige"
@@ -2425,33 +2192,14 @@
                                             "Trento"
                                         ],
                                         "cap": [
-                                            "38100"
+                                            "38068"
                                         ]
                                     }
                                 ]
                             }
                         ],
                         "allegati": [
-                            {
-                                "allegato": [
-                                    {
-                                        "$": {
-                                            "mime-type": "image/jpeg",
-                                            "index": "1",
-                                            "mibacid": "19822"
-                                        },
-                                        "url": [
-                                            "http://media.beniculturali.it/mibac/files/boards/388a5474724a15af0ace7a40ab3301de/Trentino/Trento/Trento, S.A.S.S. - Spazio archeologico sotterraneo SAS.jpg"
-                                        ],
-                                        "didascalia": [
-                                            ""
-                                        ],
-                                        "descrizione": [
-                                            ""
-                                        ]
-                                    }
-                                ]
-                            }
+                            ""
                         ]
                     }
                 ]
