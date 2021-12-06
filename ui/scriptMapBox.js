@@ -14,7 +14,8 @@ map.setMaxBounds(bounds);
 */
 // an arbitrary start will always be the same
 // only the end or destination will change
-const start = [11.13, 46.07];
+const start = [11.10, 46.00];
+const end = [11.10, 46.08];
 
 
 
@@ -29,15 +30,31 @@ async function getRoute(start, end) {
     let poi = [
         {
             "0": "11.10",
+            "1": "46.05",
+        },
+        {
+            "0": "11.10",
+            "1": "46.02",
+        },
+        {
+            "0": "11.10",
+            "1": "46.03",
+        },
+        {
+            "0": "11.10",
             "1": "46.07",
         },
         {
-            "0": "11.11",
+            "0": "11.10",
+            "1": "46.01",
+        },
+        {
+            "0": "11.10",
             "1": "46.06",
         },
         {
-            "0": "11.12",
-            "1": "46.05",
+            "0": "11.10",
+            "1": "46.02",
         }
     ];
     let path = `${start[0]},${start[1]};`;
@@ -50,12 +67,18 @@ async function getRoute(start, end) {
     }
     path += `${end[0]},${end[1]}`;
 
+    /*const query = await fetch(
+        `https://api.mapbox.com/directions/v5/mapbox/walking/${path}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+        { method: 'GET' }
+    );*/
+
     const query = await fetch(
-        `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+        `https://api.mapbox.com/optimized-trips/v1/mapbox/walking/${path}?roundtrip=false&source=first&destination=last&steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
         { method: 'GET' }
     );
     const json = await query.json();
-    const data = json.routes[0];
+    console.log(json);
+    const data = json.trips[0];
     const route = data.geometry.coordinates;
     const geojson = {
         type: 'Feature',
@@ -98,7 +121,7 @@ async function getRoute(start, end) {
 map.on('load', () => {
     // make an initial directions request that
     // starts and ends at the same location
-    getRoute(start, start);
+    getRoute(start, end);
 });
 
 map.on('click', (event) => {
