@@ -46,6 +46,8 @@ function cercaComune() {
         // Begin accessing XML data here
         let data = JSON.parse(this.response);
         if (request.status >= 200 && request.status < 400) {
+            table.innerHTML = "";
+            table.appendChild(tableHead);
             data["mibac-list"]["mibac"].forEach(luogo => {
                 const riga = document.createElement('tr');
 
