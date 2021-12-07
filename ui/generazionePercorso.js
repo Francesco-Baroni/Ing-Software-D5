@@ -254,7 +254,6 @@ function inserimentoCitta(valore) {
 function creaPercorso(txtPartenza, txtArrivo) {
     Start = txtPartenza;
     End = txtArrivo;
-
 }
 
 
@@ -295,7 +294,7 @@ function cercaPercorso() {
     lblOutputUtente.style.display = 'block';
     lblOutputUtente.innerHTML = 'Seleziona i luoghi che vuoi visitare';
     DatiPuntiDiInteresse["mibac-list"]["mibac"].forEach(luogo => {
-       
+
         const puntoDiInteresse = document.createElement('div');
         puntoDiInteresse.style.top = riga + 'px';
         if (indice % 2 == 0) {
@@ -315,14 +314,26 @@ function cercaPercorso() {
         nomeLuogo.setAttribute('id', 'nomeLuogo');
         nomeLuogo.innerHTML = luogo["luogodellacultura"][0].denominazione[0].nomestandard;
 
-
         if (luogo["luogodellacultura"][0].allegati[0] != "") {
             immagine.setAttribute('src', luogo["luogodellacultura"][0].allegati[0].allegato[0].url);
         }
         else {
             immagine.setAttribute('src', 'noImg.png');
         }
+
+        const cerchioImage = document.createElement('img');
+        cerchioImage.setAttribute('id', 'cerchioImage_' + indice);
+        cerchioImage.setAttribute('class', 'cerchioImage');
+        cerchioImage.setAttribute('src', './image/cerchio.png');
+
+        const checkImage = document.createElement('img');
+        checkImage.setAttribute('id', 'checkImage_' + indice);
+        checkImage.setAttribute('class', 'checkImage');
+        checkImage.setAttribute('src', './image/selezionato.png');
+
         puntoDiInteresse.appendChild(immagine);
+        puntoDiInteresse.appendChild(checkImage);
+        puntoDiInteresse.appendChild(cerchioImage);
         puntoDiInteresse.appendChild(nomeLuogo);
 
         puntoDiInteresse.onclick = function () { aggiungiPunto(puntoDiInteresse) };
@@ -333,6 +344,12 @@ function cercaPercorso() {
         indice++;
     });
 
+    const spazioFinePagina = document.createElement('div');
+    spazioFinePagina.style.top = riga + 'px';
+    spazioFinePagina.setAttribute('id', 'spazioFinePagina')
+    divListaPuntiDiInteresse.appendChild(spazioFinePagina);
+
+
     fromTo.appendChild(btnConfermaPercorso);
 }
 
@@ -340,15 +357,15 @@ function cercaPercorso() {
 function aggiungiPunto(puntoDiInteresse) {
     let id = puntoDiInteresse.getAttribute('id');
     let indice = id.toString().slice(id.lastIndexOf('_') + 1);
-    if (document.getElementById(id).style.border == '1px solid red') {
-        document.getElementById(id).style.border = '0px';
-        const indexRemove = PuntiInteresseSelezionati.indexOf(indice);
-        if (indexRemove > -1) {
-            PuntiInteresseSelezionati.splice(indexRemove, 1);
-        }
-    } else {
-        document.getElementById(id).style.border = '1px solid red';
+    const indexRemove = PuntiInteresseSelezionati.indexOf(indice);
+    if (indexRemove == -1) {
+        document.getElementById("checkImage_" + indice).style.display = 'block';
+        document.getElementById("cerchioImage_" + indice).style.display = 'none';
         PuntiInteresseSelezionati.push(indice);
+    } else {
+        document.getElementById("checkImage_" + indice).style.display = 'none';
+        document.getElementById("cerchioImage_" + indice).style.display = 'block';
+        PuntiInteresseSelezionati.splice(indexRemove, 1);
     }
 }
 
