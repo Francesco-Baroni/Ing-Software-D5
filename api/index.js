@@ -28,6 +28,28 @@ app.get('/api/utentiPremium', (request, response) => {
     response.send(myObject);
 });
 
+app.get('/api/percorsoAttivo', (request, response) => {
+
+    // lettura file json e estrazione dati
+    var data = fs.readFileSync('percorsi.json');
+    var myObject = JSON.parse(data);
+    let attivo = myObject.attivo;
+    let indice = -1;
+
+    for (let [i, percorso] of myObject.percorsi.entries()) {
+
+        if (percorso.id == attivo) {
+            indice = i;
+        }
+    }
+    if (indice != -1) {
+        response.send(myObject.percorsi[indice]);
+    } else {
+        response.json("Id percorso non trovato");
+    }
+
+});
+
 app.post('/api/newPremium', (request, response) => {
 
     // lettura file json e estrazione dati
@@ -53,6 +75,31 @@ app.post('/api/newPremium', (request, response) => {
     });
 
     response.json("Utente Aggiunto Correttamente: (" + myObject.premium_users.length + ")");
+});
+
+app.post('/api/newPercorso', (request, response) => {
+
+    // lettura file json e estrazione dati
+    var data = fs.readFileSync('percorsi.json');
+    var myObject = JSON.parse(data);
+    let percorso = request.body;
+
+    // creazione nuovo percorso da inserire da Request Parameter
+    let idCorrente = myObject.percorsi.length;
+    myObject.attivo = idCorrente;
+    percorso.id = idCorrente;
+
+    //aggiunta nuovo utente
+    myObject.percorsi.push(percorso);
+
+    //aggiornamento file json con il nuovo utente
+    var newData = JSON.stringify(myObject);
+    fs.writeFile('percorsi.json', newData, err => {
+        // error checking
+        if (err) throw err;
+    });
+
+    response.json("Percorso Aggiunto Correttamente: (" + myObject.percorsi.length + ")");
 });
 
 app.delete('/api/DeletePremium/:email', (request, response) => {
@@ -116,4 +163,3 @@ app.get('/api/PuntiInteresse/:comune', (request, response) => {
         console.log("Error: " + err.message);
     });
 });
-

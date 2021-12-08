@@ -1,15 +1,15 @@
-/*mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNlc2NvLWJhcm9uaSIsImEiOiJja3dybnUxY2gweTNoMzJxb3R6dGFxaDlwIn0.pkOvW-8R444cL5Wwks_teQ';
-const map = new mapboxgl.Map({
+mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNlc2NvLWJhcm9uaSIsImEiOiJja3dybnUxY2gweTNoMzJxb3R6dGFxaDlwIn0.pkOvW-8R444cL5Wwks_teQ';
+
+/*const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [12.674297, 42.6384261], // starting position
     zoom: 5
 });
-*/
 
 //COORDINATE ITALIA:
 //42.6384261
-//12.674297
+//12.674297*/
 
 
 
@@ -174,7 +174,7 @@ const txtCitta = document.createElement('input');
 txtCitta.setAttribute('type', 'text');
 txtCitta.setAttribute('id', 'txtCitta');
 txtCitta.setAttribute('placeholder', 'Inserisci una città');
-txtCitta.onkeyup = function () { inserimentoCitta(txtCitta.value) };
+txtCitta.onkeyup = function() { inserimentoCitta(txtCitta.value) };
 
 const divPartenzaArrivo = document.createElement('div');
 divPartenzaArrivo.setAttribute('id', 'divPartenzaArrivo')
@@ -183,7 +183,7 @@ const txtPartenza = document.createElement('input');
 txtPartenza.setAttribute('type', 'text');
 txtPartenza.setAttribute('id', 'txtPartenza');
 txtPartenza.setAttribute('placeholder', 'Partenza');
-txtPartenza.onkeyup = function () { inserimentoPartenza(txtPartenza.value) };
+txtPartenza.onkeyup = function() { inserimentoPartenza(txtPartenza.value) };
 
 const txtArrivo = document.createElement('input');
 txtArrivo.setAttribute('type', 'text');
@@ -194,20 +194,20 @@ const btnCercaCitta = document.createElement('input');
 btnCercaCitta.setAttribute('type', 'button');
 btnCercaCitta.setAttribute('id', 'btnCercaCitta');
 btnCercaCitta.setAttribute('value', 'Cerca');
-btnCercaCitta.onclick = function () { cercaCitta(txtCitta.value) };
+btnCercaCitta.onclick = function() { cercaCitta(txtCitta.value) };
 
 const btnCercaPercorso = document.createElement('input');
 btnCercaPercorso.setAttribute('type', 'button');
 btnCercaPercorso.setAttribute('id', 'btnCercaPercorso');
 btnCercaPercorso.setAttribute('value', 'Cerca');
-btnCercaPercorso.onclick = function () { cercaPercorso() };
+btnCercaPercorso.onclick = function() { cercaPercorso() };
 
 
 const btnConfermaPercorso = document.createElement('input');
 btnConfermaPercorso.setAttribute('type', 'button');
 btnConfermaPercorso.setAttribute('id', 'btnConfermaPercorso');
 btnConfermaPercorso.setAttribute('value', 'Conferma e cerca');
-btnConfermaPercorso.onclick = function () { creaPercorso(txtPartenza.value, txtArrivo.value) };
+btnConfermaPercorso.onclick = function() { creaPercorso(txtPartenza.value, txtArrivo.value) };
 
 
 const lblOutputUtente = document.createElement('p');
@@ -251,18 +251,47 @@ function inserimentoCitta(valore) {
     }
 }
 
-function creaPercorso(txtPartenza, txtArrivo) {
+async function creaPercorso(txtPartenza, txtArrivo) {
     Start = txtPartenza;
     End = txtArrivo;
-}
+    let percorso = {
+        "id": "",
+        "citta": txtCitta.value,
+        "start": txtPartenza,
+        "end": txtArrivo,
+        "poi": []
+    }
 
+    for (let i = 0; i < PuntiInteresseSelezionati.length; i++) {
+        let ricerca = DatiPuntiDiInteresse["mibac-list"]["mibac"][PuntiInteresseSelezionati[i]].luogodellacultura[0].indirizzi[0].indirizzo[0].comune[0];
+        ricerca += " ";
+        ricerca += DatiPuntiDiInteresse["mibac-list"]["mibac"][PuntiInteresseSelezionati[i]].luogodellacultura[0].indirizzi[0].indirizzo[0]["via-piazza"][0];
+
+        const query = await fetch(
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${ricerca}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+        );
+        const json = await query.json();
+        let coordinate = json.features[0].geometry.coordinates;
+        percorso.poi.push(coordinate);
+    }
+
+    const response = await fetch('http://localhost:50102/api/newPercorso', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(percorso)
+    });
+
+    window.location.href = 'MapBox.html';
+}
 
 function cercaCitta(citta) {
     //var citta = document.getElementById('nomeComune').value;
     var url = 'http://localhost:50102/api/PuntiInteresse/' + citta;
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
-    request.onload = function () {
+    request.onload = function() {
         // Begin accessing XML data here
         let data = JSON.parse(this.response);
         if (data["mibac-list"]["mibac"][0] == "") {
@@ -316,8 +345,7 @@ function cercaPercorso() {
 
         if (luogo["luogodellacultura"][0].allegati[0] != "") {
             immagine.setAttribute('src', luogo["luogodellacultura"][0].allegati[0].allegato[0].url);
-        }
-        else {
+        } else {
             immagine.setAttribute('src', 'noImg.png');
         }
 
@@ -336,7 +364,7 @@ function cercaPercorso() {
         puntoDiInteresse.appendChild(cerchioImage);
         puntoDiInteresse.appendChild(nomeLuogo);
 
-        puntoDiInteresse.onclick = function () { aggiungiPunto(puntoDiInteresse) };
+        puntoDiInteresse.onclick = function() { aggiungiPunto(puntoDiInteresse) };
 
 
         divListaPuntiDiInteresse.appendChild(puntoDiInteresse);
