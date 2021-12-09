@@ -1,11 +1,46 @@
 var Express = require("express");
-var bodyParser = require("body-parser");
+var app = Express();
+
+
 const { request, response, application } = require("express");
 
-var app = Express();
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
+
+const swaggerOptions = {
+    swaggerDefinition: {
+        openapi: '3.0.0',
+        info: {
+            title: "Customer API",
+            version: '1.0.0',
+            description: "Customer API Information",
+            contact: {
+                name: "G33",
+                url: 'http://localhost:50102/',
+            },
+            license: {
+                name: 'Licensed Under MIT',
+                url: 'https://spdx.org/licenses/MIT.html',
+            },
+        },
+        servers: [
+            {
+                url: 'http://localhost:50102/',
+            } ,
+        ],
+        
+    },
+    apis: ["api/index.js"]
+};
+
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+
+
 var fs = require('fs');
 const https = require('https');
 const xml2js = require('xml2js');
+var bodyParser = require("body-parser");
 
 var cors = require('cors');
 app.use(cors());
@@ -19,19 +54,111 @@ app.listen(port, () => {
     console.log("APIs are running at port: " + port);
 });
 
+/**
+ * @swagger
+ * /api/utentiPremium:
+ *   get:
+ *     summary: Ritorna la lista di utenti premium.
+ *     description: Ritorna la lista di utenti premium presenti nel sistema.
+ *     responses:
+ *       200:
+ *         description: Lista di utenti premium.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       Nome:
+ *                         type: string
+ *                         description: Il nome dell'utente.
+ *                         example: Marco
+ *                       Cognome:
+ *                         type: string
+ *                         description: Il cognome dell'utente.
+ *                         example: Munari
+ *                       Email:
+ *                         type: string
+ *                         description: L'email dell'utente.
+ *                         example: mmarco18@gmail.com
+ *                       Password:
+ *                         type: string
+ *                         description: La password dell'utente.
+ *                         example: marcouni18
+ */
 app.get('/api/utentiPremium', (request, response) => {
 
     // lettura file json e estrazione dati
-    var data = fs.readFileSync('dbLocale.json');
+    var data = fs.readFileSync('api/dbLocale.json');
     var myObject = JSON.parse(data);
 
     response.send(myObject);
 });
 
+/**
+ * @swagger
+ * /api/percorsoAttivo:
+ *   get:
+ *     summary: Ritorna il percorso attivo.
+ *     description: Ritorna il percorso attualmente attivo sulla mappa.
+ *     responses:
+ *       200:
+ *         description: Percorso attivo.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       id:
+ *                         type: integer
+ *                         description: L'id del percorso.
+ *                         example: 1
+ *                       citta:
+ *                         type: string
+ *                         description: La città del percorso.
+ *                         example: Trento
+ *                       start:
+ *                         type: string
+ *                         description: Il punto di inizio del percorso.
+ *                         example: a
+ *                       end:
+ *                         type: string
+ *                         description: La meta del percorso.
+ *                         example: b
+ *                       poi:
+ *                         type: array
+ *                         description: Punti di interesse presenti nel percorso.
+ *                         items:
+ *                           type: object
+ *                           properties:
+ *                             latitude: 
+ *                               type: double
+ *                               description: La latitudine del punto
+ *                             longitudine: 
+ *                               type: double
+ *                               description: La longitudine del punto
+ *                             nome: 
+ *                               type: string
+ *                               description: Nome del punto di interesse
+ *                             descrizione: 
+ *                               type: string
+ *                               description: Descrizione del punto di interesse
+ *                         example: [11.1266010594048,46.0706757601231,Castello del Buonconsiglio,descrizione bla bla bla]
+ *                                        
+ */                    
 app.get('/api/percorsoAttivo', (request, response) => {
 
     // lettura file json e estrazione dati
-    var data = fs.readFileSync('percorsi.json');
+    var data = fs.readFileSync('api/percorsi.json');
     var myObject = JSON.parse(data);
     let attivo = myObject.attivo;
     let indice = -1;
@@ -50,10 +177,42 @@ app.get('/api/percorsoAttivo', (request, response) => {
 
 });
 
+/**
+ * @swagger
+ * /api/newPremium:
+ *   post:
+ *     summary: Iscrizione di un utente a premium.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               Nome:
+ *                 type: string
+ *                 description: Il nome dell'utente.
+ *                 example: Marco
+ *               Cognome:
+ *                 type: string
+ *                 description: Il cognome dell'utente.
+ *                 example: Munari
+ *               Email:
+ *                 type: string
+ *                 description: L'email dell'utente.
+ *                 example: mmarco18@gmail.com
+ *               Password:
+ *                 type: string
+ *                 description: La password dell'utente.
+ *                 example: marcouni18
+ *     responses:
+ *       201:
+ *         description: successful executed
+*/
 app.post('/api/newPremium', (request, response) => {
 
     // lettura file json e estrazione dati
-    var data = fs.readFileSync('dbLocale.json');
+    var data = fs.readFileSync('api/dbLocale.json');
     var myObject = JSON.parse(data);
 
     // creazione nuovo utente premium da inserire da Request Parameter
@@ -69,7 +228,7 @@ app.post('/api/newPremium', (request, response) => {
 
     //aggiornamento file json con il nuovo utente
     var newData = JSON.stringify(myObject);
-    fs.writeFile('dbLocale.json', newData, err => {
+    fs.writeFile('api/dbLocale.json', newData, err => {
         // error checking
         if (err) throw err;
     });
@@ -77,10 +236,57 @@ app.post('/api/newPremium', (request, response) => {
     response.json("Utente Aggiunto Correttamente: (" + myObject.premium_users.length + ")");
 });
 
+/**
+ * @swagger
+ * /api/newPercorso:
+ *   post:
+ *     summary: Creazione di un percorso.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *                       citta:
+ *                         type: string
+ *                         description: La città del percorso.
+ *                         example: Trento
+ *                       start:
+ *                         type: string
+ *                         description: Il punto di inizio del percorso.
+ *                         example: a
+ *                       end:
+ *                         type: string
+ *                         description: La meta del percorso.
+ *                         example: b
+ *                       poi:
+ *                         type: array
+ *                         description: Punti di interesse presenti nel percorso.
+ *                         items:
+ *                           type: object
+ *                           properties:
+ *                             latitudine: 
+ *                               type: double
+ *                               description: La latitudine del punto
+ *                             longitudine: 
+ *                               type: double
+ *                               description: La longitudine del punto
+ *                             nome: 
+ *                               type: string
+ *                               description: Nome del punto di interesse
+ *                             descrizione: 
+ *                               type: string
+ *                               description: Descrizione del punto di interesse
+ *                         example: [11.1266010594048,46.0706757601231,Castello del Buonconsiglio,descrizione bla bla bla]
+ *     responses:
+ *       201:
+ *         description: successful executed
+*/
 app.post('/api/newPercorso', (request, response) => {
 
     // lettura file json e estrazione dati
-    var data = fs.readFileSync('percorsi.json');
+    var data = fs.readFileSync('api/percorsi.json');
     var myObject = JSON.parse(data);
     let percorso = request.body;
 
@@ -94,7 +300,7 @@ app.post('/api/newPercorso', (request, response) => {
 
     //aggiornamento file json con il nuovo utente
     var newData = JSON.stringify(myObject);
-    fs.writeFile('percorsi.json', newData, err => {
+    fs.writeFile('api/percorsi.json', newData, err => {
         // error checking
         if (err) throw err;
     });
@@ -102,10 +308,28 @@ app.post('/api/newPercorso', (request, response) => {
     response.json("Percorso Aggiunto Correttamente: (" + myObject.percorsi.length + ")");
 });
 
+/**
+ * @swagger
+ * /api/DeletePremium/{email}:
+ *   delete:
+ *     summary: Rimozione di un utente
+ *     parameters:
+ *       - in: path
+ *         name: email
+ *         schema:
+ *             type: string
+ *         required: true
+ *         description: the product name
+ *     responses:
+ *       200:
+ *         description: the product was deleted
+ *       404:
+ *         description: the product was not found
+*/
 app.delete('/api/DeletePremium/:email', (request, response) => {
 
     // lettura file json e estrazione dati
-    var data = fs.readFileSync('dbLocale.json');
+    var data = fs.readFileSync('api/dbLocale.json');
     var myObject = JSON.parse(data);
 
     // Ricerca dell'utente con quella determinata email
@@ -118,7 +342,7 @@ app.delete('/api/DeletePremium/:email', (request, response) => {
 
     //aggiornamento file json
     var newData = JSON.stringify(myObject);
-    fs.writeFile('dbLocale.json', newData, err => {
+    fs.writeFile('api/dbLocale.json', newData, err => {
         // error checking
         if (err) throw err;
     });
@@ -126,6 +350,42 @@ app.delete('/api/DeletePremium/:email', (request, response) => {
     response.json("Utente cancellato Correttamente: (" + myObject.premium_users.length + ")");
 });
 
+/**
+ * @swagger
+ * /api/PuntiInteresse/{comune}:
+ *   get:
+ *     summary: Ritorna la lista di utenti premium.
+ *     description: Ritorna la lista di utenti premium presenti nel sistema.
+ *     parameters: 
+ *       - in: path
+ *         name: comune
+ *         schema:
+ *             type: string
+ *         required: true
+ *         description: Luogo di cui si vogliono visualizzare i punti di interesse
+ *     responses:
+ *        200:
+ *          description: Lista dei comuni.
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  data:
+ *                    type: array
+ *                    items:
+ *                      type: object
+ *                      parameters:
+ *                        - in: path
+ *                          name: comune
+ *                          schema:
+ *                            type: string
+ *                            description: Comune
+ *              
+ *        404:
+ *          description: element not found
+ *   
+ */
 app.get('/api/PuntiInteresse/:comune', (request, response) => {
     var url = 'https://opendata.beniculturali.it/searchPlace?modulo=luoghi&comune=' + request.params.comune;
 
@@ -149,7 +409,7 @@ app.get('/api/PuntiInteresse/:comune', (request, response) => {
                 // convert it to a JSON string
                 const json = JSON.stringify(result, null, 4);
 
-                fs.writeFile('luoghi.json', json, err => {
+                fs.writeFile('api/luoghi.json', json, err => {
                     // error checking
                     if (err) throw err;
                 });
