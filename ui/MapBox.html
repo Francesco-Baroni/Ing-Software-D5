@@ -6,21 +6,20 @@
     <title>Getting started with the Mapbox Directions API</title>
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
-
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
     <style>
         body {
             margin: 0;
             padding: 0;
         }
-        
+
         #map {
             position: absolute;
             top: 0;
             bottom: 0;
             width: 100%;
         }
-        
+
         #fromTo {
             position: absolute;
             margin: 30px;
@@ -30,12 +29,95 @@
             background-color: rgba(61, 184, 255, 0.692);
             font-family: sans-serif;
         }
+
+        .marker {
+            background-image: url('./image/star.png');
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #imgPOIAnteprima {
+            position: relative;
+            width: 200px;
+            height: 120px;
+        }
+
+        #dettaglioPOI {
+            position: absolute;
+            width: 90%;
+            left: 5%;
+            height: 90%;
+            top: 5%;
+            background-color: white;
+            display: none;
+            text-align: center;
+            border-radius: 6px;
+            overflow: overlay;
+        }
+
+        #nomePOI {
+            text-align: center;
+            margin: 30px;
+        }
+
+        #immaginePOI {
+            position: relative;
+            border-radius: 6px;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        #descrizionePOI {
+            position: relative;
+            text-align: center;
+            padding-left: 30px;
+            padding-right: 30px;
+            font-family: sans-serif;
+        }
+
+        #btnDetttaglioPOI {
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            width: 40%;
+            margin: 5px;
+            height: 40px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-bottom: 4px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            background-color: #2d8f53;
+            color: black;
+            border: 2px solid #1d693a;
+        }
+
+        #btnEsci{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
     </style>
 </head>
 
 <body>
     <div id='map'></div>
     <div id="fromTo"></div>
+    <div id='dettaglioPOI'></div>
     <script src='scriptMapBox.js'></script>
 </body>
 

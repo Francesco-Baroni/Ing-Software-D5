@@ -9,27 +9,29 @@ const map = new mapboxgl.Map({
 const start = [11.13, 46.07];
 const end = [11.13, 46.05];
 
+var dataPOI;
+
 function getPath(start, end) {
     let id = 0;
-    setPoint(start, 'start', '#2d8f53');
-    setPoint(end, 'end', '#f30');
+    setPoint(start, 'Inizio', '#2d8f53', './image/start.png', -2);
+    setPoint(end, 'Fine', '#f30', './image/end.png', -1);
     let path = `${start[0]},${start[1]};`;
 
     var request = new XMLHttpRequest();
     request.open('GET', 'http://localhost:50102/api/percorsoAttivo', true);
-    request.onload = function() {
-        var data = JSON.parse(this.response);
+    request.onload = function () {
+        dataPOI = JSON.parse(this.response);
         if (request.status >= 200 && request.status < 400) {
-            data.poi.forEach(p => {
+            dataPOI.poi.forEach(p => {
                 path += `${p[0]},${p[1]};`
                 let pos = [p[0], p[1]];
-                setPoint(pos, "p" + id, '#33a7e0');
+                setPoint(pos, p["nome"], p["descrizione"], p["immagine"], id);
                 id++;
             });
         }
         path += `${end[0]},${end[1]}`;
     }
-    request.onloadend = function() {
+    request.onloadend = function () {
         getRoute(path)
     };
     request.send();
@@ -101,44 +103,74 @@ lblDurata.setAttribute('id', 'lblDurata');
 //fromTo.appendChild(btnGenera);
 fromTo.appendChild(lblDurata);
 
-function setPoint(pos, id, color) {
-    const point = {
-        type: 'FeatureCollection',
-        features: [{
-            type: 'Feature',
-            properties: {},
-            geometry: {
-                type: 'Point',
-                coordinates: pos
-            }
-        }]
-    };
-    if (map.getLayer(id)) {
-        map.getSource(id).setData(id);
-    } else {
-        map.addLayer({
-            id: id,
-            type: 'circle',
-            source: {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: [{
-                        type: 'Feature',
-                        properties: {},
-                        geometry: {
-                            type: 'Point',
-                            coordinates: pos
-                        }
-                    }]
-                }
-            },
-            paint: {
-                'circle-radius': 10,
-                'circle-color': color
-            }
-        });
+function setPoint(pos, nome, descrizione, immagine, cod) {
+    // create a HTML element for each feature
+    const el = document.createElement('div');
+    el.className = 'marker';
+    if (nome == 'Inizio' || nome == 'Fine') {
+        el.style.backgroundImage = 'url(' + immagine + ')';
+        new mapboxgl.Marker(el).setLngLat(pos).setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+                .setHTML(
+                    `<h3>${nome}</h3>`
+                )
+        ).addTo(map);
     }
+    else {
+        new mapboxgl.Marker(el).setLngLat(pos).setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+                .setHTML(
+                    `<div id='anteprimaPOI' onclick='dettaglioPOI(${cod})'><h3>${nome}</h3><img id='imgPOIAnteprima' src='${immagine}'></div>`
+                )
+        ).addTo(map);
+    }
+}
+
+function dettaglioPOI(cod) {
+    console.log(cod);
+
+    const div = document.getElementById("dettaglioPOI");
+    div.style.display = 'block';
+
+    const btnEsci = document.createElement('button');
+    btnEsci.setAttribute('id', 'btnEsci');
+    btnEsci.onclick = function(){
+        div.style.display = 'none';
+    };
+    btnEsci.textContent = 'X';
+
+    const nome = document.createElement('h1');
+    nome.textContent = dataPOI.poi[cod]["nome"];
+    nome.setAttribute('id', 'nomePOI');
+
+    const descrizione = document.createElement('p');
+    descrizione.textContent = dataPOI.poi[cod]["descrizione"];
+    descrizione.setAttribute('id', 'descrizionePOI');
+
+    const immagine = document.createElement('img');
+    immagine.setAttribute('src', dataPOI.poi[cod]["immagine"]);
+    immagine.setAttribute('id', 'immaginePOI');
+
+
+    const btnIntrodAudio = document.createElement('button');
+    btnIntrodAudio.setAttribute('id', 'btnDetttaglioPOI');
+    btnIntrodAudio.textContent = 'Audioguida introduttiva';
+
+
+    const btnAudio = document.createElement('button');
+    btnAudio.setAttribute('id', 'btnDetttaglioPOI');
+    btnAudio.textContent = 'Audioguida completa';
+
+    div.innerHTML = "";
+
+    div.appendChild(btnEsci);
+    div.appendChild(nome);
+    div.appendChild(immagine);
+    div.appendChild(descrizione);
+    div.appendChild(btnIntrodAudio);
+    div.appendChild(btnAudio);
+
+    document.getElementById("dettaglioPOI").innerHTML = s;
 }
 
 function generaPercorso() {
