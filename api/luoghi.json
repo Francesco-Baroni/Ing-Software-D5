@@ -4,7 +4,7 @@
             "xmlns": "http://www.beniculturali.it/MibacSchema",
             "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
             "xsi:schemaLocation": "http://storico.beniculturali.it/MibacSchema http://storico.beniculturali.it/mibac/xsd/MibacSchema.xsd",
-            "total": "6921",
+            "total": "6919",
             "totaleRitornati": "9"
         },
         "query": [

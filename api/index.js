@@ -354,8 +354,8 @@ app.delete('/api/DeletePremium/:email', (request, response) => {
  * @swagger
  * /api/PuntiInteresse/{comune}:
  *   get:
- *     summary: Ritorna la lista di utenti premium.
- *     description: Ritorna la lista di utenti premium presenti nel sistema.
+ *     summary: Ritorna la lista di punti di interesse.
+ *     description: Ritorna la lista di punti di interesse nella città specificata.
  *     parameters: 
  *       - in: path
  *         name: comune
@@ -374,14 +374,7 @@ app.delete('/api/DeletePremium/:email', (request, response) => {
  *                  data:
  *                    type: array
  *                    items:
- *                      type: object
- *                      parameters:
- *                        - in: path
- *                          name: comune
- *                          schema:
- *                            type: string
- *                            description: Comune
- *              
+ *                      type: object 
  *        404:
  *          description: element not found
  *   
