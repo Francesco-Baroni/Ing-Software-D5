@@ -262,7 +262,7 @@ async function creaPercorso(txtPartenza, txtArrivo) {
         "poi": []
     }
     const queryS = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${txtPartenza}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${txtPartenza} ${txtCitta.value}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
     );
     let cordS = [2];
     const jsonS = await queryS.json();
@@ -272,7 +272,7 @@ async function creaPercorso(txtPartenza, txtArrivo) {
     percorso.start.push(cordS);
 
     const queryE = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${txtArrivo}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${txtArrivo}  ${txtCitta.value}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
     );
     let cordE = [2];
     const jsonE = await queryE.json();
