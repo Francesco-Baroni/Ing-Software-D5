@@ -93,7 +93,7 @@ app.listen(port, () => {
 app.get('/api/utentiPremium', (request, response) => {
 
     // lettura file json e estrazione dati
-    var data = fs.readFileSync('api/dbLocale.json');
+    var data = fs.readFileSync('dbLocale.json');
     var myObject = JSON.parse(data);
 
     response.send(myObject);
@@ -158,7 +158,7 @@ app.get('/api/utentiPremium', (request, response) => {
 app.get('/api/percorsoAttivo', (request, response) => {
 
     // lettura file json e estrazione dati
-    var data = fs.readFileSync('api/percorsi.json');
+    var data = fs.readFileSync('percorsi.json');
     var myObject = JSON.parse(data);
     let attivo = myObject.attivo;
     let indice = -1;
@@ -212,7 +212,7 @@ app.get('/api/percorsoAttivo', (request, response) => {
 app.post('/api/newPremium', (request, response) => {
 
     // lettura file json e estrazione dati
-    var data = fs.readFileSync('api/dbLocale.json');
+    var data = fs.readFileSync('dbLocale.json');
     var myObject = JSON.parse(data);
 
     // creazione nuovo utente premium da inserire da Request Parameter
@@ -228,7 +228,7 @@ app.post('/api/newPremium', (request, response) => {
 
     //aggiornamento file json con il nuovo utente
     var newData = JSON.stringify(myObject);
-    fs.writeFile('api/dbLocale.json', newData, err => {
+    fs.writeFile('dbLocale.json', newData, err => {
         // error checking
         if (err) throw err;
     });
@@ -286,7 +286,7 @@ app.post('/api/newPremium', (request, response) => {
 app.post('/api/newPercorso', (request, response) => {
 
     // lettura file json e estrazione dati
-    var data = fs.readFileSync('api/percorsi.json');
+    var data = fs.readFileSync('percorsi.json');
     var myObject = JSON.parse(data);
     let percorso = request.body;
 
@@ -300,7 +300,7 @@ app.post('/api/newPercorso', (request, response) => {
 
     //aggiornamento file json con il nuovo utente
     var newData = JSON.stringify(myObject);
-    fs.writeFile('api/percorsi.json', newData, err => {
+    fs.writeFile('percorsi.json', newData, err => {
         // error checking
         if (err) throw err;
     });
@@ -329,7 +329,7 @@ app.post('/api/newPercorso', (request, response) => {
 app.delete('/api/DeletePremium/:email', (request, response) => {
 
     // lettura file json e estrazione dati
-    var data = fs.readFileSync('api/dbLocale.json');
+    var data = fs.readFileSync('dbLocale.json');
     var myObject = JSON.parse(data);
 
     // Ricerca dell'utente con quella determinata email
@@ -342,7 +342,7 @@ app.delete('/api/DeletePremium/:email', (request, response) => {
 
     //aggiornamento file json
     var newData = JSON.stringify(myObject);
-    fs.writeFile('api/dbLocale.json', newData, err => {
+    fs.writeFile('dbLocale.json', newData, err => {
         // error checking
         if (err) throw err;
     });
@@ -402,7 +402,7 @@ app.get('/api/PuntiInteresse/:comune', (request, response) => {
                 // convert it to a JSON string
                 const json = JSON.stringify(result, null, 4);
 
-                fs.writeFile('api/luoghi.json', json, err => {
+                fs.writeFile('luoghi.json', json, err => {
                     // error checking
                     if (err) throw err;
                 });

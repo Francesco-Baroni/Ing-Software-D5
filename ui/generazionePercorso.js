@@ -257,11 +257,29 @@ async function creaPercorso(txtPartenza, txtArrivo) {
     let percorso = {
         "id": "",
         "citta": txtCitta.value,
-        "start": txtPartenza,
-        "end": txtArrivo,
+        "start": [],
+        "end": [],
         "poi": []
     }
+    const queryS = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${txtPartenza}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+    );
+    let cordS = [2];
+    const jsonS = await queryS.json();
+    cordS[0] = jsonS.features[0].geometry.coordinates[0];
+    cordS[1] = jsonS.features[0].geometry.coordinates[1];
 
+    percorso.start.push(cordS);
+
+    const queryE = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${txtArrivo}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+    );
+    let cordE = [2];
+    const jsonE = await queryE.json();
+    cordE[0] = jsonE.features[0].geometry.coordinates[0];
+    cordE[1] = jsonE.features[0].geometry.coordinates[1];
+
+    percorso.end.push(cordE);
 
     for (let i = 0; i < PuntiInteresseSelezionati.length; i++) {
         let POI = {
