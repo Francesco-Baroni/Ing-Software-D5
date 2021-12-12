@@ -13,15 +13,18 @@ var dataPOI;
 
 function getPath(start, end) {
     let id = 0;
-    setPoint(start, 'Inizio', '#2d8f53', './image/start.png', -2);
-    setPoint(end, 'Fine', '#f30', './image/end.png', -1);
-    let path = `${start[0]},${start[1]};`;
+
+    let path = "";
 
     var request = new XMLHttpRequest();
     request.open('GET', 'http://localhost:50102/api/percorsoAttivo', true);
     request.onload = function () {
         dataPOI = JSON.parse(this.response);
         if (request.status >= 200 && request.status < 400) {
+            start = dataPOI.start[0];
+            console.log(start);
+            path += `${start[0]},${start[1]};`;
+
             dataPOI.poi.forEach(p => {
                 path += `${p[0]},${p[1]};`
                 let pos = [p[0], p[1]];
@@ -29,12 +32,19 @@ function getPath(start, end) {
                 id++;
             });
         }
+        end = dataPOI.end[0];
         path += `${end[0]},${end[1]}`;
+        setPoint(start, 'Inizio', '#2d8f53', './image/start.png', -2);
+        setPoint(end, 'Fine', '#f30', './image/end.png', -1);   
     }
+
+
     request.onloadend = function () {
         getRoute(path)
     };
     request.send();
+
+
 }
 
 // Creazione percorso
@@ -134,7 +144,7 @@ function dettaglioPOI(cod) {
 
     const btnEsci = document.createElement('button');
     btnEsci.setAttribute('id', 'btnEsci');
-    btnEsci.onclick = function(){
+    btnEsci.onclick = function () {
         div.style.display = 'none';
     };
     btnEsci.textContent = 'X';
