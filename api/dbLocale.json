@@ -29,12 +29,6 @@
       "Cognome": "Novi",
       "Email": "ginoN@mail.com",
       "Password": "GinNovi8"
-    },
-    {
-      "Nome": "test",
-      "Cognome": "test1",
-      "Email": "test@gmail.com",
-      "Password": "testo"
     }
   ]
 }
