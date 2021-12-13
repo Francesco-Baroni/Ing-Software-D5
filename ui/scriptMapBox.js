@@ -2,8 +2,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNlc2NvLWJhcm9uaSIsImEiOiJja3dybnUxY2gwe
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: [11.13, 46.07], // starting position
-    zoom: 12
+    center: [12.674297, 42.6384261], // starting position
+    zoom: 5
 });
 
 const start = [11.13, 46.07];
@@ -18,11 +18,12 @@ function getPath(start, end) {
 
     var request = new XMLHttpRequest();
     request.open('GET', 'http://localhost:50102/api/percorsoAttivo', true);
-    request.onload = function () {
+    request.onload = async function () {
         dataPOI = JSON.parse(this.response);
         if (request.status >= 200 && request.status < 400) {
             start = dataPOI.start[0];
             console.log(start);
+
             path += `${start[0]},${start[1]};`;
 
             dataPOI.poi.forEach(p => {
@@ -35,12 +36,25 @@ function getPath(start, end) {
         end = dataPOI.end[0];
         path += `${end[0]},${end[1]}`;
         setPoint(start, 'Inizio', '#2d8f53', './image/start.png', -2);
-        setPoint(end, 'Fine', '#f30', './image/end.png', -1);   
+        setPoint(end, 'Fine', '#f30', './image/end.png', -1);
     }
 
 
-    request.onloadend = function () {
-        getRoute(path)
+    request.onloadend = async function () {
+        getRoute(path);
+
+        const queryC = await fetch(
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${dataPOI.citta}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+        );
+        let cordC = [2];
+        const jsonC = await queryC.json();
+        cordC[0] = jsonC.features[0].geometry.coordinates[0];
+        cordC[1] = jsonC.features[0].geometry.coordinates[1];
+    
+        map.flyTo({
+            center: cordC,
+            zoom: 12
+        });
     };
     request.send();
 
@@ -180,7 +194,7 @@ function dettaglioPOI(cod) {
     div.appendChild(btnIntrodAudio);
     div.appendChild(btnAudio);
 
-    document.getElementById("dettaglioPOI").innerHTML = s;
+    //document.getElementById("dettaglioPOI").innerHTML = s;
 }
 
 function generaPercorso() {

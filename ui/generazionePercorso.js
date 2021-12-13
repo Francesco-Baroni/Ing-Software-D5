@@ -1,6 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNlc2NvLWJhcm9uaSIsImEiOiJja3dybnUxY2gweTNoMzJxb3R6dGFxaDlwIn0.pkOvW-8R444cL5Wwks_teQ';
 
-/*const map = new mapboxgl.Map({
+const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [12.674297, 42.6384261], // starting position
@@ -9,7 +9,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNlc2NvLWJhcm9uaSIsImEiOiJja3dybnUxY2gwe
 
 //COORDINATE ITALIA:
 //42.6384261
-//12.674297*/
+//12.674297
 
 
 
@@ -22,7 +22,7 @@ let PuntiInteresseSelezionati = new Array();
 
 // Creazione percorso
 // create a function to make a directions request
-/*async function getRoute(start, end) {
+async function getRoute(start, end) {
     // make a directions request using cycling profile
     // an arbitrary start will always be the same
     // only the end or destination will change
@@ -165,7 +165,7 @@ map.on('click', (event) => {
         });
     }
     getRoute(start, coords);
-});*/
+});
 
 //Campi di generazione del percorso
 
@@ -325,12 +325,12 @@ async function creaPercorso(txtPartenza, txtArrivo) {
     window.location.href = 'MapBox.html';
 }
 
-function cercaCitta(citta) {
+ function cercaCitta(citta) {
     //var citta = document.getElementById('nomeComune').value;
     var url = 'http://localhost:50102/api/PuntiInteresse/' + citta;
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
-    request.onload = function () {
+    request.onload = async function () {
         // Begin accessing XML data here
         let data = JSON.parse(this.response);
         if (data["mibac-list"]["mibac"][0] == "") {
@@ -343,6 +343,20 @@ function cercaCitta(citta) {
             DatiPuntiDiInteresse = data;
             btnCercaCitta.style.display = 'none';
             //Posizionare la mappa sulla citta selezionata
+
+            const queryC = await fetch(
+                `https://api.mapbox.com/geocoding/v5/mapbox.places/${citta}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+            );
+            let cordC = [2];
+            const jsonC = await queryC.json();
+            cordC[0] = jsonC.features[0].geometry.coordinates[0];
+            cordC[1] = jsonC.features[0].geometry.coordinates[1];
+
+            map.flyTo({
+                center: cordC,
+                zoom: 12
+            });
+
         } else {
             const errorMessage = document.createElement('marquee');
             errorMessage.textContent = `THE API IS NOT WORKING!`;
