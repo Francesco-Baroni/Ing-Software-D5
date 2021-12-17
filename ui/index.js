@@ -1,175 +1,20 @@
+//Token personale per accedere ai servizi di MapBox
 mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNlc2NvLWJhcm9uaSIsImEiOiJja3dybnUxY2gweTNoMzJxb3R6dGFxaDlwIn0.pkOvW-8R444cL5Wwks_teQ';
 
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: [12.674297, 42.6384261], // starting position
+    center: [12.674297, 42.6384261], //Posizione iniziale della mappa: Italia
     zoom: 5
 });
 
-//COORDINATE ITALIA:
-//42.6384261
-//12.674297
-
-
-
-
 let DatiPuntiDiInteresse;
-let Citta = '-1';
-let Start, End;
+let Start, End; // Inizio e fine del percorso
 let PuntiInteresseSelezionati = new Array();
 
 
-// Creazione percorso
-// create a function to make a directions request
-async function getRoute(start, end) {
-    // make a directions request using cycling profile
-    // an arbitrary start will always be the same
-    // only the end or destination will change
-    let id = 0;
-    let pos = [0, 0];
-    //setPoint(start, 'start', '#2d8f53');
+//Campi per costruire la pagina HTML
 
-    let poi = [
-        {
-            "0": "11.10",
-            "1": "46.05",
-        },
-        {
-            "0": "11.10",
-            "1": "46.02",
-        },
-        {
-            "0": "11.10",
-            "1": "46.03",
-        },
-        {
-            "0": "11.10",
-            "1": "46.07",
-        },
-        {
-            "0": "11.10",
-            "1": "46.01",
-        },
-        {
-            "0": "11.10",
-            "1": "46.06",
-        },
-        {
-            "0": "11.10",
-            "1": "46.02",
-        }
-    ];
-    let path = `${start[0]},${start[1]};`;
-    for (let p of poi) {
-        path += `${p[0]},${p[1]};`
-        pos[0] = p[0];
-        pos[1] = p[1];
-        //setPoint(pos, id, '#2d8f53');
-        id++;
-    }
-    path += `${end[0]},${end[1]}`;
-
-    const query = await fetch(
-        `https://api.mapbox.com/optimized-trips/v1/mapbox/walking/${path}?roundtrip=false&source=first&destination=last&steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
-        { method: 'GET' }
-    );
-    const json = await query.json();
-    const data = json.trips[0];
-    const route = data.geometry.coordinates;
-    const geojson = {
-        type: 'Feature',
-        properties: {},
-        geometry: {
-            type: 'LineString',
-            coordinates: route
-        }
-    };
-    // if the route already exists on the map, we'll reset it using setData
-    if (map.getSource('route')) {
-        map.getSource('route').setData(geojson);
-    }
-    // otherwise, we'll make a new request
-    else {
-        map.addLayer({
-            id: 'route',
-            type: 'line',
-            source: {
-                type: 'geojson',
-                data: geojson
-            },
-            layout: {
-                'line-join': 'round',
-                'line-cap': 'round'
-            },
-            paint: {
-                'line-color': '#3887be',
-                'line-width': 5,
-                'line-opacity': 0.75
-            }
-        });
-    }
-    // add turn instructions here at the end
-    const lblDurata = document.getElementById('lblDurata');
-    const durata = Math.floor(data.duration / 60);
-    lblDurata.textContent = 'Durata: ' + durata + ' min';
-}
-
-map.on('load', () => {
-    // make an initial directions request that
-    // starts and ends at the same location
-    //getRoute(start, end);
-});
-
-map.on('click', (event) => {
-    const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
-    const end = {
-        type: 'FeatureCollection',
-        features: [
-            {
-                type: 'Feature',
-                properties: {},
-                geometry: {
-                    type: 'Point',
-                    coordinates: coords
-                }
-            }
-        ]
-    };
-    if (map.getLayer('end')) {
-        map.getSource('end').setData(end);
-    } else {
-        map.addLayer({
-            id: 'end',
-            type: 'circle',
-            source: {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: [
-                        {
-                            type: 'Feature',
-                            properties: {},
-                            geometry: {
-                                type: 'Point',
-                                coordinates: coords
-                            }
-                        }
-                    ]
-                }
-            },
-            paint: {
-                'circle-radius': 10,
-                'circle-color': '#f30'
-            }
-        });
-    }
-    getRoute(start, coords);
-});
-
-//Campi di generazione del percorso
-
-//Barra contenente la citta'
 const txtCitta = document.createElement('input');
 txtCitta.setAttribute('type', 'text');
 txtCitta.setAttribute('id', 'txtCitta');
@@ -202,13 +47,11 @@ btnCercaPercorso.setAttribute('id', 'btnCercaPercorso');
 btnCercaPercorso.setAttribute('value', 'Cerca');
 btnCercaPercorso.onclick = function () { cercaPercorso() };
 
-
 const btnConfermaPercorso = document.createElement('input');
 btnConfermaPercorso.setAttribute('type', 'button');
 btnConfermaPercorso.setAttribute('id', 'btnConfermaPercorso');
 btnConfermaPercorso.setAttribute('value', 'Conferma e cerca');
 btnConfermaPercorso.onclick = function () { creaPercorso(txtPartenza.value, txtArrivo.value) };
-
 
 const lblOutputUtente = document.createElement('p');
 lblOutputUtente.setAttribute('id', 'lblOutputUtente');
@@ -224,25 +67,13 @@ fromTo.appendChild(btnCercaCitta);
 fromTo.appendChild(divPartenzaArrivo);
 fromTo.appendChild(lblOutputUtente);
 
-
 divPartenzaArrivo.appendChild(txtPartenza);
 divPartenzaArrivo.appendChild(txtArrivo);
 fromTo.appendChild(btnCercaPercorso);
 fromTo.appendChild(divListaPuntiDiInteresse);
 
 
-
-function inserimentoPartenza(valore) {
-    if (valore != '') {
-        if (lblOutputUtente.getAttribute('display') == 'block' && lblOutputUtente.innerHTML == 'Seleziona i luoghi che vuoi visitare') { // non funziona
-
-        } else
-            btnCercaPercorso.style.display = 'block';
-    } else {
-        btnCercaPercorso.style.display = 'none';
-    }
-}
-
+//Quando la città viene inserita, si rende visibile il pulsante per cercare la città
 function inserimentoCitta(valore) {
     if (valore != '') {
         btnCercaCitta.style.display = 'block';
@@ -251,7 +82,18 @@ function inserimentoCitta(valore) {
     }
 }
 
+//Quando il punto di partenza viene inserito, si rende visibile il pulsante per cercare i punti di interesse
+function inserimentoPartenza(valore) {
+    if (valore != '') {
+        btnCercaPercorso.style.display = 'block';
+    } else {
+        btnCercaPercorso.style.display = 'none';
+    }
+}
+
+//Funzione crea percorso
 async function creaPercorso(txtPartenza, txtArrivo) {
+    //Creazione oggetto JSON che conterrà il percorso 
     Start = txtPartenza;
     End = txtArrivo;
     let percorso = {
@@ -261,6 +103,8 @@ async function creaPercorso(txtPartenza, txtArrivo) {
         "end": [],
         "poi": []
     }
+
+    //Query a MapBox per trovare la posizione nella mappa dato l'indirizzo di partenza
     const queryS = await fetch(
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${txtPartenza} ${txtCitta.value}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
     );
@@ -268,19 +112,25 @@ async function creaPercorso(txtPartenza, txtArrivo) {
     const jsonS = await queryS.json();
     cordS[0] = jsonS.features[0].geometry.coordinates[0];
     cordS[1] = jsonS.features[0].geometry.coordinates[1];
-
     percorso.start.push(cordS);
 
-    const queryE = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${txtArrivo}  ${txtCitta.value}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
-    );
-    let cordE = [2];
-    const jsonE = await queryE.json();
-    cordE[0] = jsonE.features[0].geometry.coordinates[0];
-    cordE[1] = jsonE.features[0].geometry.coordinates[1];
 
-    percorso.end.push(cordE);
+    //Se l'arrivo non è stato specificato, la partenza verrà utilizzata anche come arrivo
+    if (txtArrivo != "") {
+        //Query a MapBox per trovare la posizione nella mappa dato l'indirizzo di arrivo
+        const queryE = await fetch(
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${txtArrivo}  ${txtCitta.value}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+        );
+        let cordE = [2];
+        const jsonE = await queryE.json();
+        cordE[0] = jsonE.features[0].geometry.coordinates[0];
+        cordE[1] = jsonE.features[0].geometry.coordinates[1];
+        percorso.end.push(cordE);
+    } else {
+        percorso.end.push(null);
+    }
 
+    //Per ogni punto di interesse selezionato dall'utente si cerca la posizione sulla mappa e le inormazione relative tramite le API del ministero del turismo
     for (let i = 0; i < PuntiInteresseSelezionati.length; i++) {
         let POI = {
             "0": 0,
@@ -314,6 +164,7 @@ async function creaPercorso(txtPartenza, txtArrivo) {
         percorso.poi.push(POI);
     }
 
+    //Viene salvato il percorso appena generato all'interno del nostro JSON locale
     const response = await fetch('http://localhost:50102/api/newPercorso', {
         method: 'POST',
         headers: {
@@ -322,30 +173,35 @@ async function creaPercorso(txtPartenza, txtArrivo) {
         body: JSON.stringify(percorso)
     });
 
+    //Viene chiamata la pagina relativa alla visualizzazione del percorso sulla mappa
     window.location.href = 'MapBox.html';
 }
 
- function cercaCitta(citta) {
-    //var citta = document.getElementById('nomeComune').value;
+//Viene cercata la città all'interno del database del ministero del turismo, per ricavarne i POI
+function cercaCitta(citta) {
     var url = 'http://localhost:50102/api/PuntiInteresse/' + citta;
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
+
     request.onload = async function () {
-        // Begin accessing XML data here
+
         let data = JSON.parse(this.response);
+
+        //Se la città non è presente, viene visualizzato un'errore sulla pagina HTML
         if (data["mibac-list"]["mibac"][0] == "") {
             lblOutputUtente.style.display = 'block';
             divPartenzaArrivo.style.display = 'none';
             lblOutputUtente.innerHTML = 'La città inserita non è supportata';
+
         } else if (request.status >= 200 && request.status < 400) {
             lblOutputUtente.style.display = 'none';
             divPartenzaArrivo.style.display = 'block';
             DatiPuntiDiInteresse = data;
             btnCercaCitta.style.display = 'none';
-            //Posizionare la mappa sulla citta selezionata
 
+            //La mappa viene centrata sulla città selezionata
             const queryC = await fetch(
-                `https://api.mapbox.com/geocoding/v5/mapbox.places/${citta}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+                `https://api.mapbox.com/geocoding/v5/mapbox.places/Italia%20${citta}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
             );
             let cordC = [2];
             const jsonC = await queryC.json();
@@ -365,11 +221,11 @@ async function creaPercorso(txtPartenza, txtArrivo) {
     }
 
     request.send();
-    //window.location.href = url;
 }
 
+
+//Visualizza l'elenco dei punti di interesse, in modo tale che l'utente selezioni quelli desiderati
 function cercaPercorso() {
-    //var citta = document.getElementById('nomeComune').value;
     let indice = 0;
     let riga = 0;
     btnCercaPercorso.style.display = 'none';
@@ -387,7 +243,6 @@ function cercaPercorso() {
         }
 
         puntoDiInteresse.setAttribute('id', 'divPuntoDiInteresse_' + indice);
-
 
         const immagine = document.createElement('img');
         immagine.setAttribute('id', 'ImmaginePuntoInteresse');
@@ -419,7 +274,6 @@ function cercaPercorso() {
 
         puntoDiInteresse.onclick = function () { aggiungiPunto(puntoDiInteresse) };
 
-
         divListaPuntiDiInteresse.appendChild(puntoDiInteresse);
 
         indice++;
@@ -430,11 +284,10 @@ function cercaPercorso() {
     spazioFinePagina.setAttribute('id', 'spazioFinePagina')
     divListaPuntiDiInteresse.appendChild(spazioFinePagina);
 
-
     fromTo.appendChild(btnConfermaPercorso);
 }
 
-
+//Aggiunge un punto di interesse all'Array dei punti di interesse selezionati (che verranno usati per la generazione del percorso)
 function aggiungiPunto(puntoDiInteresse) {
     let id = puntoDiInteresse.getAttribute('id');
     let indice = id.toString().slice(id.lastIndexOf('_') + 1);
@@ -449,58 +302,3 @@ function aggiungiPunto(puntoDiInteresse) {
         PuntiInteresseSelezionati.splice(indexRemove, 1);
     }
 }
-
-
-/*
-function setPoint(pos, id, color) {
-    const point = {
-        type: 'FeatureCollection',
-        features: [
-            {
-                type: 'Feature',
-                properties: {},
-                geometry: {
-                    type: 'Point',
-                    coordinates: pos
-                }
-            }
-        ]
-    };
-    if (map.getLayer(id)) {
-        map.getSource(id).setData(id);
-    } else {
-        map.addLayer({
-            id: id,
-            type: 'circle',
-            source: {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: [
-                        {
-                            type: 'Feature',
-                            properties: {},
-                            geometry: {
-                                type: 'Point',
-                                coordinates: to
-                            }
-                        }
-                    ]
-                }
-            },
-            paint: {
-                'circle-radius': 10,
-                'circle-color': color
-            }
-        });
-    }
-}
-
-function generaPercorso() {
-    const from = (document.getElementById('from').value).split(',');
-    const to = (document.getElementById('to').value).split(',');
-
-    getRoute(from, to);
-    setPoint(from, 'start', '#1e8aa5');
-    setPoint(to, 'end', '#f30');
-}*/

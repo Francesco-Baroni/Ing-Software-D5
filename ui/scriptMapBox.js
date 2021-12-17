@@ -1,8 +1,10 @@
+//Token personale per accedere ai servizi di MapBox
 mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNlc2NvLWJhcm9uaSIsImEiOiJja3dybnUxY2gweTNoMzJxb3R6dGFxaDlwIn0.pkOvW-8R444cL5Wwks_teQ';
+
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: [12.674297, 42.6384261], // starting position
+    center: [12.674297, 42.6384261], //Posizione iniziale della mappa: Italia
     zoom: 5
 });
 
@@ -11,59 +13,75 @@ const end = [11.13, 46.05];
 
 var dataPOI;
 
+//Quando la mappa è stata caricata, visualizza il percorso su di essa
+map.on('load', () => {
+    getPath(start, end);
+});
+
+
+//Visualizza il percoso sulla mappa
 function getPath(start, end) {
     let id = 0;
-
     let path = "";
 
+    //Richiesta alle API il percorso attivo (che è salvato nel file JSON)
     var request = new XMLHttpRequest();
     request.open('GET', 'http://localhost:50102/api/percorsoAttivo', true);
     request.onload = async function () {
         dataPOI = JSON.parse(this.response);
+
         if (request.status >= 200 && request.status < 400) {
             start = dataPOI.start[0];
-            console.log(start);
-
             path += `${start[0]},${start[1]};`;
 
             dataPOI.poi.forEach(p => {
                 path += `${p[0]},${p[1]};`
                 let pos = [p[0], p[1]];
-                setPoint(pos, p["nome"], p["descrizione"], p["immagine"], id);
+                setPoint(pos, p["nome"], p["immagine"], id);
                 id++;
             });
         }
-        end = dataPOI.end[0];
-        path += `${end[0]},${end[1]}`;
-        setPoint(start, 'Inizio', '#2d8f53', './image/start.png', -2);
-        setPoint(end, 'Fine', '#f30', './image/end.png', -1);
+
+        //Se non è presente una fine, utilizza l'inizio del percorso anche come fine
+        if (dataPOI.end[0] != null) {
+            end = dataPOI.end[0];
+            path += `${end[0]},${end[1]}`;
+            setPoint(start, 'Inizio', './image/start.png', -2);
+            setPoint(end, 'Fine', './image/end.png', -1);
+        } else {
+            end = dataPOI.start[0];
+            path += `${start[0]},${start[1]}`;
+            setPoint(start, 'Inizio-Fine', './image/start.png', -2);
+        }
     }
 
 
     request.onloadend = async function () {
+        //Crea il percorso
         getRoute(path);
 
+        //Centra la mappa sulla città selezionata
         const queryC = await fetch(
-            `https://api.mapbox.com/geocoding/v5/mapbox.places/${dataPOI.citta}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/Italia%20${dataPOI.citta}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
         );
         let cordC = [2];
         const jsonC = await queryC.json();
         cordC[0] = jsonC.features[0].geometry.coordinates[0];
         cordC[1] = jsonC.features[0].geometry.coordinates[1];
-    
+
         map.flyTo({
             center: cordC,
             zoom: 12
         });
     };
+
     request.send();
-
-
 }
 
 // Creazione percorso
 async function getRoute(path) {
-    console.log(path);
+
+    //Genera il percorso più corto con i POI selezionati
     const query = await fetch(
         `https://api.mapbox.com/optimized-trips/v1/mapbox/walking/${path}?roundtrip=false&source=first&destination=last&steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
     );
@@ -78,11 +96,10 @@ async function getRoute(path) {
             coordinates: route
         }
     };
-    // if the route already exists on the map, we'll reset it using setData
+
     if (map.getSource('route')) {
         map.getSource('route').setData(geojson);
     }
-    // otherwise, we'll make a new request
     else {
         map.addLayer({
             id: 'route',
@@ -102,39 +119,25 @@ async function getRoute(path) {
             }
         });
     }
-    // add turn instructions here at the end
     const lblDurata = document.getElementById('lblDurata');
     const durata = Math.floor(data.duration / 60);
     lblDurata.textContent = 'Durata: ' + durata + ' min';
 }
 
-map.on('load', () => {
-    // make an initial directions request that
-    // starts and ends at the same location
-    getPath(start, end);
-});
-
-// get the sidebar and add the instructions
 const fromTo = document.getElementById('fromTo');
-//const btnGenera = document.createElement('button');
 const lblDurata = document.createElement('label');
 
-//btnGenera.textContent = 'Genera Percorso';
-//btnGenera.onclick = function() { generaPercorso() };
-
 lblDurata.setAttribute('id', 'lblDurata');
-
-//fromTo.appendChild(btnGenera);
 fromTo.appendChild(lblDurata);
 
-function setPoint(pos, nome, descrizione, immagine, cod) {
-    // create a HTML element for each feature
+//Segna i punti sulla mappa, tramite la posizione
+function setPoint(pos, nome, immagine, cod) {
     const el = document.createElement('div');
     el.className = 'marker';
-    if (nome == 'Inizio' || nome == 'Fine') {
+    if (nome == 'Inizio' || nome == 'Fine' || nome == "Inizio-Fine") {
         el.style.backgroundImage = 'url(' + immagine + ')';
         new mapboxgl.Marker(el).setLngLat(pos).setPopup(
-            new mapboxgl.Popup({ offset: 25 }) // add popups
+            new mapboxgl.Popup({ offset: 25 })
                 .setHTML(
                     `<h3>${nome}</h3>`
                 )
@@ -142,7 +145,7 @@ function setPoint(pos, nome, descrizione, immagine, cod) {
     }
     else {
         new mapboxgl.Marker(el).setLngLat(pos).setPopup(
-            new mapboxgl.Popup({ offset: 25 }) // add popups
+            new mapboxgl.Popup({ offset: 25 })
                 .setHTML(
                     `<div id='anteprimaPOI' onclick='dettaglioPOI(${cod})'><h3>${nome}</h3><img id='imgPOIAnteprima' src='${immagine}'></div>`
                 )
@@ -150,8 +153,8 @@ function setPoint(pos, nome, descrizione, immagine, cod) {
     }
 }
 
+//Apre la schermata di dettaglio di un POI
 function dettaglioPOI(cod) {
-    console.log(cod);
 
     const div = document.getElementById("dettaglioPOI");
     div.style.display = 'block';
@@ -175,11 +178,9 @@ function dettaglioPOI(cod) {
     immagine.setAttribute('src', dataPOI.poi[cod]["immagine"]);
     immagine.setAttribute('id', 'immaginePOI');
 
-
     const btnIntrodAudio = document.createElement('button');
     btnIntrodAudio.setAttribute('id', 'btnDetttaglioPOI');
     btnIntrodAudio.textContent = 'Audioguida introduttiva';
-
 
     const btnAudio = document.createElement('button');
     btnAudio.setAttribute('id', 'btnDetttaglioPOI');
@@ -193,15 +194,4 @@ function dettaglioPOI(cod) {
     div.appendChild(descrizione);
     div.appendChild(btnIntrodAudio);
     div.appendChild(btnAudio);
-
-    //document.getElementById("dettaglioPOI").innerHTML = s;
-}
-
-function generaPercorso() {
-    const from = (document.getElementById('from').value).split(',');
-    const to = (document.getElementById('to').value).split(',');
-
-    getRoute(from, to);
-    setPoint(from, 'start', '#1e8aa5');
-    setPoint(to, 'end', '#f30');
 }
