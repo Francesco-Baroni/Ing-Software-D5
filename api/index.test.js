@@ -2,24 +2,19 @@ const request = require("supertest");
 const app = require("./index.js");
 
 describe("GET /Utenti Premium", () => {
-  it("test", async () => {
-    const res = await request(app)
+  it("Empty JSON", () => {
+    request(app)
       .get("/api/utentiPremium")
       .expect("Content-Type", /json/)
-      .expect(200);
-    expect(res.body.premium_users).toHaveLength(res.body.premium_users.length);
-  });
-  it("Empty JSON", async () => {
-    const res = await request(app)
-      .get("/api/utentiPremium")
-      .expect("Content-Type", /json/);
-    if (res.body.premium_users.length === 0) expect(200);
+      .end((err, res) => {
+        expect(res.body.premium_users.length).not.toBe(0);
+      });
   });
 });
 
 describe("POST /New Premium", () => {
-  it("test", async () => {
-    const res = await request(app)
+  it("Create a user", async () => {
+    request(app)
       .post("/api/newPremium")
       .expect("Content-Type", /json/)
       .send({
@@ -33,18 +28,19 @@ describe("POST /New Premium", () => {
 });
 
 describe("DELETE /Delete Premium", () => {
-  it("test", async () => {
+  it("Delete a user", () => {
     const url = "/api/DeletePremium/test@gmail.com";
-    const res = await request(app)
-      .delete(url)
-      .expect("Content-Type", /json/)
-      .expect(200);
+    request(app).delete(url).expect("Content-Type", /json/).expect(200);
   });
-  it("Element not found", async () => {
+  it("Element not found", () => {
     const url = "/api/DeletePremium/elementthatsnotsupposedtobeinthejson";
-    const res = await request(app)
+    request(app)
       .delete(url)
       .expect("Content-Type", /json/)
-      .expect(200);
+      .end((err, res) => {
+        expect(res.premium_users.Email).not.toBe(
+          "elementthatsnotsupposedtobeinthejson"
+        );
+      });
   });
 });
