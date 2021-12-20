@@ -11,6 +11,7 @@ const map = new mapboxgl.Map({
 let DatiPuntiDiInteresse;
 let Start, End; // Inizio e fine del percorso
 let PuntiInteresseSelezionati = new Array();
+let Preferito = false;
 
 
 //Campi per costruire la pagina HTML
@@ -52,6 +53,12 @@ btnConfermaPercorso.setAttribute('type', 'button');
 btnConfermaPercorso.setAttribute('id', 'btnConfermaPercorso');
 btnConfermaPercorso.setAttribute('value', 'Conferma e cerca');
 btnConfermaPercorso.onclick = function () { creaPercorso(txtPartenza.value, txtArrivo.value) };
+
+const btnPreferito = document.createElement('input');
+btnPreferito.setAttribute('type', 'button');
+btnPreferito.setAttribute('id', 'btnPreferito');
+btnPreferito.setAttribute('value', 'Aggiungi ai preferiti');
+btnPreferito.onclick = function () { segnaPreferito() };
 
 const lblOutputUtente = document.createElement('p');
 lblOutputUtente.setAttribute('id', 'lblOutputUtente');
@@ -97,11 +104,15 @@ async function creaPercorso(txtPartenza, txtArrivo) {
     Start = txtPartenza;
     End = txtArrivo;
     let percorso = {
+        "preferito": 0,
         "id": "",
         "citta": txtCitta.value,
         "start": [],
         "end": [],
         "poi": []
+    }
+    if (Preferito) {
+        percorso.preferito = 1;
     }
 
     //Query a MapBox per trovare la posizione nella mappa dato l'indirizzo di partenza
@@ -158,7 +169,7 @@ async function creaPercorso(txtPartenza, txtArrivo) {
             POI["immagine"] = DatiPuntiDiInteresse["mibac-list"]["mibac"][PuntiInteresseSelezionati[i]].luogodellacultura[0].allegati[0].allegato[0].url[0];
         }
         else {
-            POI["immagine"] = 'noImg.png';
+            POI["immagine"] = './image/noImg.png';
         }
 
         percorso.poi.push(POI);
@@ -254,7 +265,7 @@ function cercaPercorso() {
         if (luogo["luogodellacultura"][0].allegati[0] != "") {
             immagine.setAttribute('src', luogo["luogodellacultura"][0].allegati[0].allegato[0].url);
         } else {
-            immagine.setAttribute('src', 'noImg.png');
+            immagine.setAttribute('src', './image/noImg.png');
         }
 
         const cerchioImage = document.createElement('img');
@@ -285,6 +296,7 @@ function cercaPercorso() {
     divListaPuntiDiInteresse.appendChild(spazioFinePagina);
 
     fromTo.appendChild(btnConfermaPercorso);
+    fromTo.appendChild(btnPreferito);
 }
 
 //Aggiunge un punto di interesse all'Array dei punti di interesse selezionati (che verranno usati per la generazione del percorso)
@@ -301,4 +313,21 @@ function aggiungiPunto(puntoDiInteresse) {
         document.getElementById("cerchioImage_" + indice).style.display = 'block';
         PuntiInteresseSelezionati.splice(indexRemove, 1);
     }
+}
+
+//Segna che il percorso fa parte dei percorsi preferiti
+function segnaPreferito() {
+    Preferito = true;
+}
+
+function toMappa() {
+    window.location.href = 'MapBox.html';
+}
+
+function toAccount() {
+    window.location.href = 'testUtenti.html';
+}
+
+function toPreferiti(){
+    window.location.href = 'preferiti.html';
 }

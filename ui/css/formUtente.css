@@ -1,0 +1,124 @@
+body,
+div,
+form,
+input,
+select,
+p {
+    font-family: Roboto, Arial, sans-serif;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Dosis', sans-serif;
+    line-height: 1.6;
+    color: #666;
+    background: #67aeb8;
+}
+
+h1 {
+    margin: 0;
+    font-weight: 400;
+}
+
+h3 {
+    margin: 12px 0;
+    color: #8ebf42;
+}
+
+.main-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #b5eaf1;
+}
+
+form {
+    width: 100%;
+    padding: 20px;
+}
+
+fieldset {
+    border: none;
+    border-top: 1px solid #8ebf42;
+}
+
+.account-details,
+.personal-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.account-details>div,
+.personal-details>div>div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.account-details>div,
+.personal-details>div,
+input,
+label {
+    width: 100%;
+}
+
+label {
+    padding: 0 5px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+input {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+button {
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px auto;
+    border-radius: 5px;
+    border: none;
+    background: #8ebf42;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.btnLuoghi {
+    background-color: #2d8f53;
+    width: 20%;
+    height: 30px;
+    color: black;
+    border: 2px solid #1d693a;
+}
+
+.btnLuoghi:hover {
+    background-color: #329e5c;
+    color: white;
+}
+
+@media (min-width: 568px) {
+
+    .account-details>div,
+    .personal-details>div {
+        width: 50%;
+    }
+
+    label {
+        width: 40%;
+    }
+
+    input {
+        width: 60%;
+    }
+
+    select,
+    .children,
+    .gender,
+    .bdate-block {
+        width: calc(60% + 16px);
+    }
+}

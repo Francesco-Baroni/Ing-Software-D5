@@ -245,8 +245,26 @@ button:hover {
 #btnConfermaPercorso {
     position: relative;
     top: 30px;
-    width: 50%;
-    left: 25%;
+    width: 30%;
+    left: 20%;
+    padding: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0px;
+    margin-top: 15px;
+    border: 1px solid black;
+    background-color: rgb(231, 241, 222);
+    border-radius: 5px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+#btnPreferito {
+    position: relative;
+    top: 30px;
+    width: 30%;
+    left: 20%;
     padding: 0px;
     padding-top: 5px;
     padding-bottom: 5px;

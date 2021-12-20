@@ -3,19 +3,10 @@ const app = document.getElementById('root');
 const titolo = document.createElement('h1');
 titolo.textContent = "TourPath";
 
-const logo = document.createElement('img');
-logo.src = 'logo.png';
-
 const btnAdd = document.createElement('button');
 btnAdd.setAttribute('class', 'button btnAdd');
 btnAdd.onclick = function() {aggiungipremium()};
 btnAdd.textContent = "Aggiungi utente premium";
-
-const btnLuoghi = document.createElement('button');
-btnLuoghi.setAttribute('class', 'button btnLuoghi');
-btnLuoghi.onclick = function() {luoghi()};
-btnLuoghi.textContent = "Luoghi";
-
 
 const table = document.createElement('table');
 table.setAttribute('id', 'users');
@@ -32,10 +23,8 @@ const th4 = document.createElement('th');
 th4.textContent = "Password";
 
 
-app.appendChild(logo);
 app.appendChild(titolo);
 app.appendChild(btnAdd);
-app.appendChild(btnLuoghi);
 app.appendChild(table);
 table.appendChild(tableHead);
 tableHead.appendChild(th1);
@@ -47,7 +36,7 @@ var request = new XMLHttpRequest();
 request.open('GET', 'http://localhost:50102/api/utentiPremium', true);
 request.onload = function () {
 
-    // Begin accessing JSON data here
+    // Accesso al file JSON
     var data = JSON.parse(this.response);
     if (request.status >= 200 && request.status < 400) {
         data.premium_users.forEach(user => {
@@ -81,6 +70,10 @@ function aggiungipremium(){
     window.location.href = 'formNuovoUtente.html';
 }
 
-function luoghi(){
-    window.location.href = 'luoghi.html';
+function toMappa(){
+    window.location.href = 'MapBox.html';
+}
+
+function toPreferiti(){
+    window.location.href = 'preferiti.html';
 }

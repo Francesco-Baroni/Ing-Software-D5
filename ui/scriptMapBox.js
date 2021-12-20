@@ -124,11 +124,17 @@ async function getRoute(path) {
     lblDurata.textContent = 'Durata: ' + durata + ' min';
 }
 
+const btnGenera = document.createElement('button');
 const fromTo = document.getElementById('fromTo');
-const lblDurata = document.createElement('label');
+const lblDurata = document.createElement('p');
+
+btnGenera.setAttribute('id', 'btnGenera');
+btnGenera.textContent = 'Genera nuovo percorso';
+btnGenera.onclick = function () { toGenera() };
 
 lblDurata.setAttribute('id', 'lblDurata');
 fromTo.appendChild(lblDurata);
+fromTo.appendChild(btnGenera);
 
 //Segna i punti sulla mappa, tramite la posizione
 function setPoint(pos, nome, immagine, cod) {
@@ -194,4 +200,16 @@ function dettaglioPOI(cod) {
     div.appendChild(descrizione);
     div.appendChild(btnIntrodAudio);
     div.appendChild(btnAudio);
+}
+
+function toAccount(){
+    window.location.href = 'testUtenti.html';
+}
+
+function toPreferiti(){
+    window.location.href = 'preferiti.html';
+}
+
+function toGenera(){
+    window.location.href = 'index.html';
 }

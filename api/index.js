@@ -417,4 +417,21 @@ app.get('/api/PuntiInteresse/:comune', (request, response) => {
     });
 });
 
+app.get('/api/PercorsiPreferiti', (request, response) => {
+
+    // lettura file json e estrazione dati
+    var data = fs.readFileSync('percorsi.json');
+    var myObject = JSON.parse(data);
+    var preferitiJson = JSON.parse('{"percorsi": []}')
+
+    // Ricerca dell'utente con quella determinata email
+    for (let [i, percorso] of myObject.percorsi.entries()) {
+        if (percorso.preferito == 1) {
+            preferitiJson.percorsi.push(myObject.percorsi[i]);
+        }
+    }
+
+    response.send(preferitiJson);
+});
+
 module.exports = app;
