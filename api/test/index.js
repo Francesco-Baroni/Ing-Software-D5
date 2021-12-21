@@ -15,7 +15,7 @@ test("TEST 1 : Users list", (assert) => {
       }
 
       assert.error(err, "No error");
-      assert.notEqual(true, result, "Employees retrieved Correctly");
+      assert.notEqual(true, result, "User retrieved Correctly");
       assert.end();
     });
 });
@@ -60,7 +60,7 @@ test("TEST3: User deleted", (assert) => {
       assert.isEqual(
         "Utente cancellato Correttamente",
         res.body,
-        "Employee deleted correctly"
+        "User deleted correctly"
       );
       assert.end();
     });
