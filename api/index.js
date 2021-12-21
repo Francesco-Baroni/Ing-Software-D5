@@ -59,7 +59,7 @@ app.listen(port, () => {
  *     description: Ritorna la lista di utenti premium presenti nel sistema.
  *     responses:
  *       200:
- *         description: Lista di utenti premium.
+ *         description: Successfully executed.
  *         content:
  *           application/json:
  *             schema:
@@ -99,11 +99,10 @@ app.get("/api/utentiPremium", (request, response) => {
  * @swagger
  * /api/percorsoAttivo:
  *   get:
- *     summary: Ritorna il percorso attivo.
- *     description: Ritorna il percorso attualmente attivo sulla mappa.
+ *     description: Ritorna il percorso attivo.
  *     responses:
  *       200:
- *         description: Percorso attivo.
+ *         description: Successfully executed.
  *         content:
  *           application/json:
  *             schema:
@@ -114,6 +113,10 @@ app.get("/api/utentiPremium", (request, response) => {
  *                   items:
  *                     type: object
  *                     properties:
+ *                       preferito:
+ *                         type: integer
+ *                         description: Identificativo del percorso tra i preferiti.
+ *                         example: 1
  *                       id:
  *                         type: integer
  *                         description: L'id del percorso.
@@ -123,33 +126,49 @@ app.get("/api/utentiPremium", (request, response) => {
  *                         description: La città del percorso.
  *                         example: Trento
  *                       start:
- *                         type: string
- *                         description: Il punto di inizio del percorso.
- *                         example: a
- *                       end:
- *                         type: string
- *                         description: La meta del percorso.
- *                         example: b
- *                       poi:
  *                         type: array
- *                         description: Punti di interesse presenti nel percorso.
+ *                         description: Il punto di inizio del percorso.
  *                         items:
- *                           type: object
- *                           properties:
- *                             latitude:
- *                               type: double
- *                               description: La latitudine del punto
- *                             longitudine:
- *                               type: double
- *                               description: La longitudine del punto
- *                             nome:
- *                               type: string
- *                               description: Nome del punto di interesse
- *                             descrizione:
- *                               type: string
- *                               description: Descrizione del punto di interesse
- *                         example: [11.1266010594048,46.0706757601231,Castello del Buonconsiglio,descrizione bla bla bla]
- *
+ *                           latitudine:
+ *                             type: double
+ *                             description: La latitudine del punto
+ *                           longitudine:
+ *                             type: double
+ *                             description: La longitudine del punto
+ *                           example: [14.52345321294048,48.55213531664318]
+ *                       end:
+ *                         type: array
+ *                         description: La meta del percorso.
+ *                         items:
+ *                           latitudine:
+ *                             type: double
+ *                             description: La latitudine del punto
+ *                           longitudine:
+ *                             type: double
+ *                             description: La longitudine del punto
+ *                           example: [16.41525214551248,46.415234512456125]
+ *                       poi:
+ *                           type: array
+ *                           description: Punti di interesse presenti nel percorso.
+ *                           items:
+ *                             type: object
+ *                             properties:
+ *                               latitudine:
+ *                                 type: double
+ *                                 description: La latitudine del punto
+ *                                 example: 11.1266010594048
+ *                               longitudine:
+ *                                 type: double
+ *                                 description: La longitudine del punto
+ *                                 example: 46.0706757601231
+ *                               nome:
+ *                                 type: string
+ *                                 description: Nome del punto di interesse
+ *                                 example: Castello del Buonconsiglio
+ *                               descrizione:
+ *                                 type: string
+ *                                 description: Descrizione del punto di interesse
+ *                                 example: descrizione
  */
 app.get("/api/percorsoAttivo", (request, response) => {
   // lettura file json e estrazione dati
@@ -200,7 +219,7 @@ app.get("/api/percorsoAttivo", (request, response) => {
  *                 example: marcouni18
  *     responses:
  *       201:
- *         description: successful executed
+ *         description: Successfully executed.
  */
 app.post("/api/newPremium", (request, response) => {
   // lettura file json e estrazione dati
@@ -247,13 +266,27 @@ app.post("/api/newPremium", (request, response) => {
  *                         description: La città del percorso.
  *                         example: Trento
  *                       start:
- *                         type: string
+ *                         type: array
  *                         description: Il punto di inizio del percorso.
- *                         example: a
+ *                         items:
+ *                           latitudine:
+ *                             type: double
+ *                             description: La latitudine del punto
+ *                           longitudine:
+ *                             type: double
+ *                             description: La longitudine del punto
+ *                           example: [14.52345321294048,48.55213531664318]
  *                       end:
- *                         type: string
+ *                         type: array
  *                         description: La meta del percorso.
- *                         example: b
+ *                         items:
+ *                           latitudine:
+ *                             type: double
+ *                             description: La latitudine del punto
+ *                           longitudine:
+ *                             type: double
+ *                             description: La longitudine del punto
+ *                           example: [16.41525214551248,46.415234512456125]
  *                       poi:
  *                         type: array
  *                         description: Punti di interesse presenti nel percorso.
@@ -275,7 +308,7 @@ app.post("/api/newPremium", (request, response) => {
  *                         example: [11.1266010594048,46.0706757601231,Castello del Buonconsiglio,descrizione]
  *     responses:
  *       201:
- *         description: successful executed
+ *         description: Successfully executed.
  */
 app.post("/api/newPercorso", (request, response) => {
   // lettura file json e estrazione dati
@@ -360,7 +393,7 @@ app.delete("/api/DeletePremium/:email", (request, response) => {
  *         description: Luogo di cui si vogliono visualizzare i punti di interesse
  *     responses:
  *        200:
- *          description: Lista dei comuni.
+ *          description: Successfully executed.
  *          content:
  *            application/json:
  *              schema:
@@ -417,12 +450,12 @@ app.get("/api/PuntiInteresse/:comune", (request, response) => {
 
 /**
  * @swagger
- * /api/Percorsipreferiti:
+ * /api/PercorsiPreferiti:
  *   get:
- *     description: Ritorna la lista dei percorsi preferiti.
+ *     description: Ritorna la lista di percorsi preferiti.
  *     responses:
  *       200:
- *         description: Percorsi preferiti.
+ *         description: Successfully executed.
  *         content:
  *           application/json:
  *             schema:
@@ -433,6 +466,10 @@ app.get("/api/PuntiInteresse/:comune", (request, response) => {
  *                   items:
  *                     type: object
  *                     properties:
+ *                       preferito:
+ *                         type: integer
+ *                         description: Identificativo del percorso tra i preferiti.
+ *                         example: 1
  *                       id:
  *                         type: integer
  *                         description: L'id del percorso.
@@ -442,33 +479,49 @@ app.get("/api/PuntiInteresse/:comune", (request, response) => {
  *                         description: La città del percorso.
  *                         example: Trento
  *                       start:
- *                         type: string
- *                         description: Il punto di inizio del percorso.
- *                         example: a
- *                       end:
- *                         type: string
- *                         description: La meta del percorso.
- *                         example: b
- *                       poi:
  *                         type: array
- *                         description: Punti di interesse presenti nel percorso.
+ *                         description: Il punto di inizio del percorso.
  *                         items:
- *                           type: object
- *                           properties:
- *                             latitude:
- *                               type: double
- *                               description: La latitudine del punto
- *                             longitudine:
- *                               type: double
- *                               description: La longitudine del punto
- *                             nome:
- *                               type: string
- *                               description: Nome del punto di interesse
- *                             descrizione:
- *                               type: string
- *                               description: Descrizione del punto di interesse
- *                         example: [11.1266010594048,46.0706757601231,Castello del Buonconsiglio,descrizione]
- *
+ *                           latitudine:
+ *                             type: double
+ *                             description: La latitudine del punto
+ *                           longitudine:
+ *                             type: double
+ *                             description: La longitudine del punto
+ *                           example: [14.52345321294048,48.55213531664318]
+ *                       end:
+ *                         type: array
+ *                         description: La meta del percorso.
+ *                         items:
+ *                           latitudine:
+ *                             type: double
+ *                             description: La latitudine del punto
+ *                           longitudine:
+ *                             type: double
+ *                             description: La longitudine del punto
+ *                           example: [16.41525214551248,46.415234512456125]
+ *                       poi:
+ *                           type: array
+ *                           description: Punti di interesse presenti nel percorso.
+ *                           items:
+ *                             type: object
+ *                             properties:
+ *                               latitudine:
+ *                                 type: double
+ *                                 description: La latitudine del punto
+ *                                 example: 11.1266010594048
+ *                               longitudine:
+ *                                 type: double
+ *                                 description: La longitudine del punto
+ *                                 example: 46.0706757601231
+ *                               nome:
+ *                                 type: string
+ *                                 description: Nome del punto di interesse
+ *                                 example: Castello del Buonconsiglio
+ *                               descrizione:
+ *                                 type: string
+ *                                 description: Descrizione del punto di interesse
+ *                                 example: descrizione
  */
 app.get("/api/PercorsiPreferiti", (request, response) => {
   // lettura file json e estrazione dati
