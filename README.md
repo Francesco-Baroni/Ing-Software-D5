@@ -1,17 +1,25 @@
-# Ing-Software-D5
-Documento D5
+# Ing-Software-D5 
+###### Progetto: TourPath
 
-Per fare andare la pagina index.html:
-- Da terminale posizionarsi nella cartella api ed eseguire il comando npm start
-- Aprire il file index.html nella cartella ui
+## Per provare l'applicazione web:
+1. Posizionarsi col terminale nella cartella api
+2. Eseguire il comando:
+```
+npm start
+```
+3. Dovrebbe comparire a terminale il seguente messaggio: *APIs are running at port: 50102*
+4. Ora basta aprire tramite un browser la pagina index.html nella cartella ui
+5. Bene! Ora è possibile usufruire dell'applicazione web che abbiamo creato
 
-    > Nota: Nella pagina dovrebbe comparire una tabella con alcuni utenti premium ed un bottone aggiungi utente premium che non ho ancora implementato.
-      Questa pagina mi serviva solo per verificare le api in modo carino.
+## Per visualizzare la documentazione delle api:
+6. Una volta fatto partire il server
+    >Punto 2 
+7. Cliccare [qui](http://localhost:50102/api-docs)
+    >Oppure andare a questo link: http://localhost:50102/api-docs
 
-Per testare le api da postMan eseguire da terminale npm start, successivamente in postMan:
-- Per la get: http://localhost:50102/api/utentiPremium
-- Per la post: http://localhost:50102/api/newPremium
-
-    > Nota per la post: vanno messi dei dati, sotto la post cliccare su body poi selezionare x-www-form-urlencoded ed inserire i dati.
-      Le key saranno: Nome, Cognome, Email e Password. Mentre value mettete quello che volete.
- 
+## Per eseguire i test delle api:
+8. Posizionarsi col terminale nella cartella api
+9. Eseguire il comando:
+```
+npm test
+```
