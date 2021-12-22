@@ -212,7 +212,7 @@ function cercaCitta(citta) {
 
             //La mappa viene centrata sulla città selezionata
             const queryC = await fetch(
-                `https://api.mapbox.com/geocoding/v5/mapbox.places/Italia%20${citta}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+                `https://api.mapbox.com/geocoding/v5/mapbox.places/${citta}.json?country=it&limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
             );
             let cordC = [2];
             const jsonC = await queryC.json();
@@ -317,7 +317,13 @@ function aggiungiPunto(puntoDiInteresse) {
 
 //Segna che il percorso fa parte dei percorsi preferiti
 function segnaPreferito() {
-    Preferito = true;
+    if (Preferito) {
+        Preferito = false;
+        btnPreferito.style.background = "rgb(231, 241, 222)";
+    } else {
+        Preferito = true;
+        btnPreferito.style.background = "rgb(64 217 36)";
+    }
 }
 
 function toMappa() {
@@ -328,6 +334,6 @@ function toAccount() {
     window.location.href = 'testUtenti.html';
 }
 
-function toPreferiti(){
+function toPreferiti() {
     window.location.href = 'preferiti.html';
 }

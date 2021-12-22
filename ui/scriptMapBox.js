@@ -62,7 +62,7 @@ function getPath(start, end) {
 
         //Centra la mappa sulla città selezionata
         const queryC = await fetch(
-            `https://api.mapbox.com/geocoding/v5/mapbox.places/Italia%20${dataPOI.citta}.json?limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${dataPOI.citta}.json?country=it&limit=1&access_token=${mapboxgl.accessToken}`, { method: 'GET' }
         );
         let cordC = [2];
         const jsonC = await queryC.json();

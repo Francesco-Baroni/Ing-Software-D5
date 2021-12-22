@@ -149,6 +149,14 @@ body {
     height: 100%;
 }
 
+.colonnaNavBar img{
+    cursor: pointer;
+}
+
+.colonnaNavBar p{
+    cursor: pointer;
+}
+
 #buttonPreferiti {
     left: 0px;
 }
