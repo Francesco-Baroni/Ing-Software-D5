@@ -8,9 +8,9 @@ test("TEST 1 : Users list", (assert) => {
     .expect("Content-Type", /json/)
     .expect(200)
     .end(function (err, res) {
-      var NumOfEmployees = res.body.premium_users.length;
+      var usersCount = res.body.premium_users.length;
       var result = false;
-      if (NumOfEmployees == 0) {
+      if (usersCount == 0) {
         result = true;
       }
 
