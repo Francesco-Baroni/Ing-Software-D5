@@ -212,7 +212,7 @@ app.get("/api/percorsoAttivo", (request, response) => {
  *                 description: La password dell'utente.
  *                 example: marcouni18
  *     responses:
- *       201:
+ *       200:
  *         description: Successfully executed.
  */
 app.post("/api/newPremium", (request, response) => {
@@ -299,7 +299,7 @@ app.post("/api/newPremium", (request, response) => {
  *                               description: Descrizione del punto di interesse
  *                         example: [11.1266010594048,46.0706757601231,Castello del Buonconsiglio,descrizione]
  *     responses:
- *       201:
+ *       200:
  *         description: Successfully executed.
  */
 app.post("/api/newPercorso", (request, response) => {

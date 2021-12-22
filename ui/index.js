@@ -54,6 +54,8 @@ btnConfermaPercorso.setAttribute('id', 'btnConfermaPercorso');
 btnConfermaPercorso.setAttribute('value', 'Conferma e cerca');
 btnConfermaPercorso.onclick = function () { creaPercorso(txtPartenza.value, txtArrivo.value) };
 
+const br = document.createElement('br');
+
 const btnPreferito = document.createElement('input');
 btnPreferito.setAttribute('type', 'button');
 btnPreferito.setAttribute('id', 'btnPreferito');
@@ -296,6 +298,7 @@ function cercaPercorso() {
     divListaPuntiDiInteresse.appendChild(spazioFinePagina);
 
     fromTo.appendChild(btnConfermaPercorso);
+    fromTo.appendChild(br);
     fromTo.appendChild(btnPreferito);
 }
 

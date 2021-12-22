@@ -165,7 +165,7 @@ button:hover {
 
 #divListaPuntiDiInteresse {
     position: relative;
-    top: 100px;
+    top: 120px;
     left: 1%;
     width: 98%;
     height: fit-content;
@@ -245,8 +245,8 @@ button:hover {
 #btnConfermaPercorso {
     position: relative;
     top: 30px;
-    width: 30%;
-    left: 20%;
+    width: 40%;
+    left: 30%;
     padding: 0px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -264,8 +264,8 @@ button:hover {
 #btnPreferito {
     position: relative;
     top: 30px;
-    width: 30%;
-    left: 20%;
+    width: 40%;
+    left: 30%;
     padding: 0px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -369,5 +369,17 @@ button:hover {
 #spazioFinePagina {
     position: absolute;
     width: 100%;
-    height: 60px;
+    height: 220px;
 }
+
+@media (max-width: 600px) {
+    #btnConfermaPercorso {
+        width: 70%;
+        left: 15%;
+    }
+    
+    #btnPreferito {
+        width: 70%;
+        left: 15%;
+    }
+  }
